@@ -30,7 +30,7 @@ The repository includes:
 ### 1. **Raw Prediction Data**
 
 **Original Files (Expert Prompt - for backward compatibility):**
-- `llm_predictions/gpt_results.csv` - GPT-4o predictions (400 rows: 100 cases Ã— 4 runs)
+- `llm_predictions/gpt_results.csv` - GPT-4o predictions (400 rows: 100 cases — 4 runs)
 - `llm_predictions/gemini_results.csv` - Gemini-2.0-Flash predictions (400 rows)
 - `llm_predictions/qwen_results.csv` - Qwen-Plus predictions (400 rows)
 
@@ -44,7 +44,7 @@ The repository includes:
 - `llm_predictions/gemini_results_new.csv` - Gemini-2.0-Flash predictions (400 rows)
 - `llm_predictions/qwen_results_new.csv` - Qwen-Plus predictions (400 rows)
 
-**Total:** 2,400 predictions (3 models Ã— 2 prompts Ã— 100 cases Ã— 4 runs)
+**Total:** 2,400 predictions (3 models — 2 prompts — 100 cases — 4 runs)
 
 ### 2. **Test Set**
 - `sampling/llm_test_data.csv` - 100 selected clinical cases with ground truth labels

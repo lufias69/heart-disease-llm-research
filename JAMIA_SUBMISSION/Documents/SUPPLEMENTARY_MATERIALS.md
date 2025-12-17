@@ -39,7 +39,7 @@
 **GPT-4o Justification:**
 "The patient's clinical profile indicates a high likelihood of coronary artery disease. Key indicators include a very high serum cholesterol level of 361 mg/dl and a fasting blood sugar level greater than 120 mg/dl (fbs=1.0), both significant cardiovascular risk factors. The presence of ST-T wave abnormalities on resting ECG (restecg=1.0) and a relatively high maximum heart rate for age suggest underlying cardiac stress. Although the patient has no exercise-induced angina, the cumulative risk factor burden warrants a positive diagnosis."
 
-**Clinical Note:** This case demonstrates risk factor conflationâ€”the model identifies risk factors (high cholesterol, diabetes) but the patient does not have confirmed coronary stenosis.
+**Clinical Note:** This case demonstrates risk factor conflation>=€”the model identifies risk factors (high cholesterol, diabetes) but the patient does not have confirmed coronary stenosis.
 
 **Gemini-2.0-Flash Justification:**
 "Multiple cardiovascular risk factors are present: significantly elevated cholesterol (361 mg/dl), diabetes indicated by fasting blood sugar >120 mg/dl, and ECG abnormalities. The ST-T wave changes on resting ECG are particularly concerning for underlying ischemia. Despite the absence of exercise-induced symptoms, the constellation of risk factors suggests likely coronary artery disease."
@@ -95,14 +95,14 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 | Feature | Mean (FP cases) | Mean (TN cases) | p-value | Interpretation |
 |---------|-----------------|-----------------|---------|----------------|
-| Age (years) | 56.2 Â± 8.1 | 54.8 Â± 9.2 | 0.52 | Not significant |
-| Cholesterol (mg/dl) | 267 Â± 48 | 239 Â± 42 | 0.01* | Higher in FP |
-| Resting BP (mm Hg) | 135 Â± 19 | 129 Â± 16 | 0.14 | Not significant |
-| Max Heart Rate | 145 Â± 22 | 152 Â± 19 | 0.13 | Not significant |
-| ST Depression (oldpeak) | 1.2 Â± 1.1 | 0.8 Â± 0.9 | 0.08 | Borderline |
+| Age (years) | 56.2 >=± 8.1 | 54.8 >=± 9.2 | 0.52 | Not significant |
+| Cholesterol (mg/dl) | 267 >=± 48 | 239 >=± 42 | 0.01* | Higher in FP |
+| Resting BP (mm Hg) | 135 >=± 19 | 129 >=± 16 | 0.14 | Not significant |
+| Max Heart Rate | 145 >=± 22 | 152 >=± 19 | 0.13 | Not significant |
+| ST Depression (oldpeak) | 1.2 >=± 1.1 | 0.8 >=± 0.9 | 0.08 | Borderline |
 | Exercise Angina (%) | 45% | 30% | 0.12 | Not significant |
 | Abnormal ECG (%) | 58% | 42% | 0.09 | Borderline |
-| Vessels on Fluoro (ca) | 0.8 Â± 0.9 | 0.3 Â± 0.6 | 0.003* | Higher in FP |
+| Vessels on Fluoro (ca) | 0.8 >=± 0.9 | 0.3 >=± 0.6 | 0.003* | Higher in FP |
 
 **Key Finding:** False positive cases had significantly higher cholesterol (p=0.01) and more vessels visible on fluoroscopy (p=0.003), suggesting models may over-weight these risk factors despite ground truth classification criteria.
 
@@ -354,28 +354,28 @@ All data files are available in the GitHub repository: https://github.com/lufias
 
 ```
 heart-disease/
-â”œâ”€â”€ llm_testing/
-â”‚   â”œâ”€â”€ llm_tester.py          # Main LLM testing logic
-â”‚   â”œâ”€â”€ database.py            # SQLite checkpoint system
-â”‚   â””â”€â”€ data_loader.py         # Data loading utilities
-â”œâ”€â”€ evaluation/
-â”‚   â””â”€â”€ evaluator.py           # Evaluation metrics and analysis
-â”œâ”€â”€ scripts/
-â”‚   â”œâ”€â”€ check_progress.py      # Monitor experiment progress
-â”‚   â”œâ”€â”€ resume_experiment.py   # Resume from checkpoint
-â”‚   â”œâ”€â”€ compare_prompts.py     # Prompt comparison analysis
-â”‚   â”œâ”€â”€ comprehensive_consistency_analysis.py  # Main analysis
-â”‚   â”œâ”€â”€ optimize_threshold.py  # Threshold optimization
-â”‚   â””â”€â”€ view_errors.py         # Error inspection
-â”œâ”€â”€ results/
-â”‚   â”œâ”€â”€ llm_predictions/       # Databases and CSV files
-â”‚   â””â”€â”€ evaluation/            # Figures and tables
-â”œâ”€â”€ manuscript/
-â”‚   â”œâ”€â”€ DRAFT_PAPER.md         # Full manuscript
-â”‚   â”œâ”€â”€ COVER_LETTER.md        # Journal cover letter
-â”‚   â””â”€â”€ SUBMISSION_CHECKLIST.md  # This file
-â”œâ”€â”€ run_experiment.py          # Main experiment runner
-â””â”€â”€ README.md                  # Repository documentation
+>=”œ>=”€>=”€ llm_testing/
+>=”‚   >=”œ>=”€>=”€ llm_tester.py          # Main LLM testing logic
+>=”‚   >=”œ>=”€>=”€ database.py            # SQLite checkpoint system
+>=”‚   >=””>=”€>=”€ data_loader.py         # Data loading utilities
+>=”œ>=”€>=”€ evaluation/
+>=”‚   >=””>=”€>=”€ evaluator.py           # Evaluation metrics and analysis
+>=”œ>=”€>=”€ scripts/
+>=”‚   >=”œ>=”€>=”€ check_progress.py      # Monitor experiment progress
+>=”‚   >=”œ>=”€>=”€ resume_experiment.py   # Resume from checkpoint
+>=”‚   >=”œ>=”€>=”€ compare_prompts.py     # Prompt comparison analysis
+>=”‚   >=”œ>=”€>=”€ comprehensive_consistency_analysis.py  # Main analysis
+>=”‚   >=”œ>=”€>=”€ optimize_threshold.py  # Threshold optimization
+>=”‚   >=””>=”€>=”€ view_errors.py         # Error inspection
+>=”œ>=”€>=”€ results/
+>=”‚   >=”œ>=”€>=”€ llm_predictions/       # Databases and CSV files
+>=”‚   >=””>=”€>=”€ evaluation/            # Figures and tables
+>=”œ>=”€>=”€ manuscript/
+>=”‚   >=”œ>=”€>=”€ DRAFT_PAPER.md         # Full manuscript
+>=”‚   >=”œ>=”€>=”€ COVER_LETTER.md        # Journal cover letter
+>=”‚   >=””>=”€>=”€ SUBMISSION_CHECKLIST.md  # This file
+>=”œ>=”€>=”€ run_experiment.py          # Main experiment runner
+>=””>=”€>=”€ README.md                  # Repository documentation
 ```
 
 ### Reproduction Instructions:
@@ -426,7 +426,7 @@ For each test case i and model m, with runs r = 1,2,3,4:
 3. **Inter-model agreement:**
    ```
    For models A and B:
-   Majority_vote_i,A = 1 if â‰¥2/4 predictions = 1, else 0
+   Majority_vote_i,A = 1 if >=‰¥2/4 predictions = 1, else 0
    Agreement_AB = sum(Majority_vote_i,A == Majority_vote_i,B) / N
    ```
 
@@ -439,7 +439,7 @@ For each test case i and model m, with runs r = 1,2,3,4:
 
 ### Diagnostic Accuracy Metrics
 
-Using majority vote (â‰¥2/4 runs predict positive):
+Using majority vote (>=‰¥2/4 runs predict positive):
 
 ```
 Accuracy = (TP + TN) / (TP + TN + FP + FN)

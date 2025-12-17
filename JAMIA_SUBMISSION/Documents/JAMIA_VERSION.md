@@ -1,7 +1,7 @@
 ﻿# High Consistency, Limited Accuracy: Evaluating Large Language Models for Binary Medical Diagnosis
 
-**Authors:** Dwi AnggrianiÂ¹, Syaiful Bachri MustaminÂ¹*, Muhammad AtnangÂ¹, Kartini Aprilia Pratiwi NuzryÂ¹  
-**Affiliation:** Â¹Department of Information Technology, Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari, Kendari, Indonesia  
+**Authors:** Dwi Anggriani>=¹, Syaiful Bachri Mustamin>=¹*, Muhammad Atnang>=¹, Kartini Aprilia Pratiwi Nuzry>=¹  
+**Affiliation:** >=¹Department of Information Technology, Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari, Kendari, Indonesia  
 **Corresponding Author:** *Syaiful Bachri Mustamin, syaifulbachri@mail.ugm.ac.id  
 **Preprint:** medRxiv DOI: [10.64898/2025.12.08.25341823](https://doi.org/10.64898/2025.12.08.25341823)
 
@@ -51,7 +51,7 @@ We implemented a SQLite-based checkpoint system enabling immediate data saving, 
 
 **Primary outcomes:**
 1. **Intra-model consistency**: Proportion of runs with majority agreement per case
-2. **Diagnostic accuracy**: Using majority voting (â‰¥2/4 runs), we calculated accuracy, sensitivity, specificity, precision, and F1-score
+2. **Diagnostic accuracy**: Using majority voting (>=‰¥2/4 runs), we calculated accuracy, sensitivity, specificity, precision, and F1-score
 3. **Inter-model agreement**: Pairwise agreement and Cohen's kappa between models
 
 **Secondary outcomes:**
@@ -103,7 +103,7 @@ Diagnostic accuracy approximated random guessing (48-51%) despite 99-100% consis
 | Qwen | Expert | 51.0% | 51.0% | 100% | 67.6% | 49 | 0 |
 | Qwen | Neutral | 48.0% | 48.5% | 98% | 64.9% | 51 | 1 |
 
-Representative confusion matrices showed models predicted "disease present" for nearly all cases, with true negatives â‰ˆ0.
+Representative confusion matrices showed models predicted "disease present" for nearly all cases, with true negatives >=‰ˆ0.
 
 ### Prompt Sensitivity: Minimal Impact
 
@@ -139,7 +139,7 @@ This study demonstrates a critical dissociation between consistency and accuracy
 
 ### The Consistency-Accuracy Paradox
 
-High consistency indicates LLMs reliably apply learned reasoning patternsâ€”they are systematically biased rather than randomly erring. This "consistent wrongness" is arguably more concerning than random errors, suggesting fundamental limitations in medical reasoning capabilities [10] rather than simple uncertainty.
+High consistency indicates LLMs reliably apply learned reasoning patterns>=€”they are systematically biased rather than randomly erring. This "consistent wrongness" is arguably more concerning than random errors, suggesting fundamental limitations in medical reasoning capabilities [10] rather than simple uncertainty.
 
 Several mechanisms may explain this paradox:
 
@@ -200,7 +200,7 @@ We thank [collaborators/institutions] for support and OpenAI, Google, and Alibab
 7. Moor M, Banerjee O, Abad ZSH, et al. Foundation models for generalist medical artificial intelligence. Nature. 2023;616(7956):259-265. doi:10.1038/s41586-023-05881-4
 8. Janosi A, Steinbrunn W, Pfisterer M, Detrano R. Heart Disease [Dataset]. UCI Machine Learning Repository. 1988. doi:10.24432/C52P4X
 9. Ji Z, Lee N, Frieske R, et al. Survey of hallucination in natural language generation. ACM Comput Surv. 2023;55(12):1-38. doi:10.1145/3571730
-10. LiÃ©vin V, Hother CE, Motzfeldt AG, Winther O. Can large language models reason about medical questions? Patterns. 2024;5(3):100943. doi:10.1016/j.patter.2024.100943
+10. Li©vin V, Hother CE, Motzfeldt AG, Winther O. Can large language models reason about medical questions? Patterns. 2024;5(3):100943. doi:10.1016/j.patter.2024.100943
 11. White J, Fu Q, Hays S, et al. A prompt pattern catalog to enhance prompt engineering with ChatGPT. arXiv:2302.11382. 2023.
 12. Jiang LY, Liu XC, Nejatbakhsh N, et al. Health system-scale language models are all-purpose prediction engines. Nature. 2023;619(7969):357-362. doi:10.1038/s41586-023-06160-y
 13. McDermott MBA, Wang S, Marinsek N, et al. Reproducibility in machine learning for health research. Sci Transl Med. 2021;13(586):eabb1655. doi:10.1126/scitranslmed.abb1655
