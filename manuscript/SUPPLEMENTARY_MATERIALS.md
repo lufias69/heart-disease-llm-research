@@ -123,7 +123,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 **Interpretation:** AUC values near 0.5 indicate discrimination ability no better than random chance, consistent with ~50% accuracy findings.
 
-*File: `results/evaluation/roc_curves.png`*
+![Supplementary Figure S1: ROC Curves and Threshold Analysis](../results/evaluation/supplementary_fig_s1_roc_curves.png)
 
 ---
 
@@ -139,7 +139,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 - Very few predictions below 0.5 threshold
 - Distribution overlap explains poor discrimination
 
-*File: `results/evaluation/prediction_distributions.png`*
+![Supplementary Figure S2: Prediction Probability Distributions](../results/evaluation/supplementary_fig_s2_distributions.png)
 
 ---
 
@@ -162,7 +162,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 **Interpretation:** Models appear to prioritize abnormal test findings and risk factors over demographic factors, but lack proper threshold calibration for diagnosis.
 
-*File: `results/evaluation/feature_correlations.png`*
+![Supplementary Figure S3: Feature Importance Analysis](../results/evaluation/supplementary_fig_s3_feature_correlations.png)
 
 ---
 
