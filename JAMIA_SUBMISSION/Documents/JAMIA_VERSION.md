@@ -5,8 +5,6 @@
 **Corresponding Author:** *Syaiful Bachri Mustamin, syaifulbachri@mail.ugm.ac.id  
 **Preprint:** medRxiv DOI: [10.64898/2025.12.08.25341823](https://doi.org/10.64898/2025.12.08.25341823)
 
----
-
 ## Abstract
 
 **Background:** Large Language Models (LLMs) have demonstrated impressive capabilities in medical knowledge tasks, yet their reliability and consistency in clinical diagnosis remain incompletely characterized.
@@ -21,8 +19,6 @@
 
 **Keywords:** Large Language Models, Medical Diagnosis, Consistency Analysis, Heart Disease, Clinical Decision Support, AI Reliability, Reproducibility
 
----
-
 ## Introduction
 
 Large Language Models (LLMs) have emerged as promising tools for clinical applications, demonstrating impressive performance on medical licensing examinations and case analysis [1-3]. However, their deployment in clinical settings raises critical questions about reliability and consistency. While traditional diagnostic tools are expected to yield reproducible results, LLMs employ stochastic generation that can lead to varying outputs [4], with documented tendencies toward hallucinations and inconsistent reasoning [9,10]. Reproducibility challenges in AI systems have been extensively documented [13], yet remain incompletely characterized for medical LLMs.
@@ -30,8 +26,6 @@ Large Language Models (LLMs) have emerged as promising tools for clinical applic
 Despite growing literature on LLM performance in medical question-answering [5,6], few studies have systematically examined the relationship between consistency and accuracy in diagnostic tasks. Most evaluations focus on single-run accuracy without assessing reproducibility, and the influence of prompt engineering remains incompletely characterized [7,11].
 
 This study addresses these gaps through comprehensive evaluation of three state-of-the-art LLMs on binary heart disease diagnosis. Our aims were to: (1) quantify intra-model consistency across repeated runs, (2) evaluate inter-model agreement, (3) measure diagnostic accuracy relative to consistency, (4) assess prompt sensitivity, and (5) analyze error patterns to determine if mistakes are random or systematic.
-
----
 
 ## Methods
 
@@ -65,8 +59,6 @@ We implemented a SQLite-based checkpoint system enabling immediate data saving, 
 5. **Error patterns**: Classification as all-correct, all-wrong, or mixed outcomes
 
 Statistical analyses used Python with pandas, scikit-learn, and scipy. Significance was set at p<0.05.
-
----
 
 ## Results
 
@@ -139,8 +131,6 @@ Errors were highly systematic rather than random (Table 5). In 98-99% of cases, 
 
 Qualitative analysis revealed models consistently cited elevated cholesterol, abnormal ECG findings, or exercise abnormalities as disease evidence, even when ground truth indicated absence of significant stenosis, suggesting risk factor conflation with diagnostic criteria.
 
----
-
 ## Discussion
 
 ### Principal Findings
@@ -195,13 +185,9 @@ Current general-purpose LLMs are better suited as supplementary decision support
 
 This work contributes to nuanced understanding of LLM capabilities and limitations in healthcare, informing responsible development and deployment of AI-assisted clinical decision support systems.
 
----
-
 ## Acknowledgments
 
 We thank [collaborators/institutions] for support and OpenAI, Google, and Alibaba for API access.
-
----
 
 ## References
 
@@ -220,8 +206,6 @@ We thank [collaborators/institutions] for support and OpenAI, Google, and Alibab
 13. McDermott MBA, Wang S, Marinsek N, et al. Reproducibility in machine learning for health research. Sci Transl Med. 2021;13(586):eabb1655. doi:10.1126/scitranslmed.abb1655
 14. Chen IY, Pierson E, Rose S, et al. Ethical machine learning in healthcare. Annu Rev Biomed Data Sci. 2021;4:123-144. doi:10.1146/annurev-biodatasci-092820-114757
 15. Savage T, Nayak A, Gallo R, et al. Diagnostic reasoning prompts reveal the potential for large language model interpretability in medicine. NPJ Digit Med. 2024;7(1):20. doi:10.1038/s41746-024-01010-1
-
----
 
 **Word Count:** ~5,000 words (within JAMIA 5,000-word limit)
 **References:** 15 (all from 2021-2024 except dataset)
