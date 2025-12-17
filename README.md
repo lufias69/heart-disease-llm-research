@@ -326,7 +326,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Preprint:** https://doi.org/10.64898/2025.12.08.25341823
 - **Dataset:** https://archive.ics.uci.edu/dataset/45/heart+disease
-- **Institution:** https://stikes-aisyiyahkdi.ac.id/
+- **Institution:** https://istekaisyiyah.ac.id
 
 ---
 
