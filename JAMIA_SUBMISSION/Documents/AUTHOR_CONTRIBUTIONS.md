@@ -81,20 +81,24 @@ S.B.M. had full access to all data in the study and takes responsibility for the
 
 
 
-## AI and Automation Disclosure
+## AI and Technology Disclosure
 
-**Large Language Model APIs Used for Research (Not for Manuscript Writing):**
-- OpenAI GPT-4o API (research subject)
-- Google Gemini-2.0-Flash API (research subject)
-- Alibaba Qwen-Plus API (research subject)
+**AI Systems as Research Subjects:**  
+This study evaluated three large language models as research subjects:
+- OpenAI GPT-4o API (evaluated for diagnostic performance)
+- Google Gemini-2.0-Flash API (evaluated for diagnostic performance)
+- Alibaba Qwen-Plus API (evaluated for diagnostic performance)
 
-These LLM APIs were the research subjects being evaluated and were not used for manuscript writing, data analysis, or interpretation. All analysis code, manuscript writing, and interpretation were performed by the human authors.
+These AI systems were used solely to generate diagnostic predictions that served as research data. The models were not used for manuscript writing, data analysis, literature review, or interpretation of results.
 
-**Data Analysis:**  
-Python scripts for statistical analysis and visualization were developed by S.B.M. No AI was used for data analysis or interpretation.
+**Data Analysis and Code:**  
+All statistical analysis, data visualization, and research code were developed by S.B.M. using Python programming language with standard scientific libraries (pandas, scikit-learn, scipy, matplotlib). No AI code generation tools were used.
 
-**Manuscript Writing:**  
-The manuscript was written entirely by the human authors without AI assistance.
+**Manuscript Preparation:**  
+The manuscript text, including all sections (introduction, methods, results, discussion, conclusions), was written entirely by human authors without generative AI writing assistance. No AI tools (ChatGPT, Claude, Gemini, or similar) were used to draft, edit, or revise any manuscript content.
+
+**Literature Search:**  
+Literature review and reference management were conducted by human authors using traditional academic databases and tools.
 
 
 

@@ -155,16 +155,22 @@ Data and code are already prepared for public release and will be made available
 
 
 
-## Generative AI Statement
+## Generative AI and Technology Disclosure
 
-**Use of AI in Research:**  
-This research evaluated three large language models (GPT-4o, Gemini-2.0-Flash, Qwen-Plus) as research subjects. These models were not used for data analysis, interpretation, or manuscript writing.
+**AI as Research Subject:**  
+This study evaluates three large language models (GPT-4o, Gemini-2.0-Flash, Qwen-Plus) as research subjects for medical diagnostic assessment. These AI systems were used solely to generate diagnostic predictions that served as study data for analysis. The AI models were accessed via their respective commercial APIs (OpenAI, Google, Alibaba Cloud) under standard terms of service.
 
-**Use of AI in Writing:**  
-No generative AI tools were used in the preparation of this manuscript. All writing, analysis, and interpretation were performed by the human authors.
+**Manuscript Preparation:**  
+The manuscript text, including introduction, methods, results, discussion, and conclusions, was written entirely by human authors without generative AI writing assistance. No AI tools (e.g., ChatGPT, Claude, Gemini, or similar) were used to draft, edit, or revise any portion of the manuscript text.
 
-**Transparency:**  
-All AI interactions are documented in the research data and code repository for full transparency.
+**Data Analysis and Code:**  
+All data analysis, statistical computations, and visualizations were performed by human authors using Python programming. Standard scientific libraries (pandas, scikit-learn, scipy, matplotlib) were used for data manipulation, statistical analysis, and plotting. All analysis code was written by human authors without AI code generation assistance.
+
+**Literature Search and Citations:**  
+Literature search and reference management were conducted by human authors using traditional academic databases (PubMed, Google Scholar) and reference management software. No AI tools were used for literature review or citation generation.
+
+**Transparency Commitment:**  
+All interactions with the evaluated AI systems (GPT-4o, Gemini-2.0-Flash, Qwen-Plus) are fully documented in the publicly available research repository, including exact prompts used, API parameters, and complete prediction datasets. This ensures full reproducibility and transparency of the research methodology.
 
 
 
