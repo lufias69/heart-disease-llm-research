@@ -51,7 +51,7 @@ We implemented a SQLite-based checkpoint system enabling immediate data saving, 
 
 **Primary outcomes:**
 1. **Intra-model consistency**: Proportion of runs with majority agreement per case
-2. **Diagnostic accuracy**: Using majority voting (‰¥2/4 runs), we calculated accuracy, sensitivity, specificity, precision, and F1-score
+2. **Diagnostic accuracy**: Using majority voting (>=2/4 runs), we calculated accuracy, sensitivity, specificity, precision, and F1-score
 3. **Inter-model agreement**: Pairwise agreement and Cohen's kappa between models
 
 **Secondary outcomes:**
@@ -64,7 +64,7 @@ Statistical analyses used Python with pandas, scikit-learn, and scipy. Significa
 
 ### Intra-Model Consistency: Exceptional Reproducibility
 
-All models demonstrated remarkably high consistency (Table 1). Qwen-Plus achieved perfect consistency (100%) with the expert prompt, never varying across 4 independent runs. GPT-4o and Gemini-2.0-Flash showed 99.0-99.5% average consistency. Notably, 96-100% of cases achieved perfect agreement (4/4 identical predictions), and minimum consistency never fell below 50%.
+All models demonstrated remarkably high consistency (Table 1, Figure 1). Qwen-Plus achieved perfect consistency (100%) with the expert prompt, never varying across 4 independent runs. GPT-4o and Gemini-2.0-Flash showed 99.0-99.5% average consistency. Notably, 96-100% of cases achieved perfect agreement (4/4 identical predictions), and minimum consistency never fell below 50%.
 
 **Table 1. Intra-Model Consistency**
 
@@ -103,11 +103,11 @@ Diagnostic accuracy approximated random guessing (48-51%) despite 99-100% consis
 | Qwen | Expert | 51.0% | 51.0% | 100% | 67.6% | 49 | 0 |
 | Qwen | Neutral | 48.0% | 48.5% | 98% | 64.9% | 51 | 1 |
 
-Representative confusion matrices showed models predicted "disease present" for nearly all cases, with true negatives ≈ 0.
+Representative confusion matrices (Figure 2) showed models predicted "disease present" for nearly all cases, with true negatives ≈ 0.
 
 ### Prompt Sensitivity: Minimal Impact
 
-Changing from expert to neutral prompt had minimal effect (Table 4). GPT-4o showed zero sensitivity (100% identical predictions), while Gemini and Qwen changed only 1-3 predictions (1-3% of cases). This suggests diagnostic behavior is deeply encoded rather than easily modifiable through prompting.
+Changing from expert to neutral prompt had minimal effect (Table 4, Figure 3). GPT-4o showed zero sensitivity (100% identical predictions), while Gemini and Qwen changed only 1-3 predictions (1-3% of cases). This suggests diagnostic behavior is deeply encoded rather than easily modifiable through prompting.
 
 **Table 4. Prompt Robustness**
 
@@ -139,7 +139,7 @@ This study demonstrates a critical dissociation between consistency and accuracy
 
 ### The Consistency-Accuracy Paradox
 
-High consistency indicates LLMs reliably apply learned reasoning patterns€”they are systematically biased rather than randomly erring. This "consistent wrongness" is arguably more concerning than random errors, suggesting fundamental limitations in medical reasoning capabilities [10] rather than simple uncertainty.
+High consistency indicates LLMs reliably apply learned reasoning patterns—they are systematically biased rather than randomly erring. This "consistent wrongness" is arguably more concerning than random errors, suggesting fundamental limitations in medical reasoning capabilities [10] rather than simple uncertainty.
 
 Several mechanisms may explain this paradox:
 
@@ -187,7 +187,7 @@ This work contributes to nuanced understanding of LLM capabilities and limitatio
 
 ## Acknowledgments
 
-We thank [collaborators/institutions] for support and OpenAI, Google, and Alibaba for API access.
+We thank Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari for institutional support. We acknowledge OpenAI, Google, and Alibaba Cloud for providing API access to GPT-4o, Gemini-2.0-Flash, and Qwen-Plus respectively through standard commercial services. We thank the UCI Machine Learning Repository and the original data collectors (Janosi, Steinbrunn, Pfisterer, and Detrano) for making the Heart Disease dataset publicly available.
 
 ## References
 
@@ -200,7 +200,7 @@ We thank [collaborators/institutions] for support and OpenAI, Google, and Alibab
 7. Moor M, Banerjee O, Abad ZSH, et al. Foundation models for generalist medical artificial intelligence. Nature. 2023;616(7956):259-265. doi:10.1038/s41586-023-05881-4
 8. Janosi A, Steinbrunn W, Pfisterer M, Detrano R. Heart Disease [Dataset]. UCI Machine Learning Repository. 1988. doi:10.24432/C52P4X
 9. Ji Z, Lee N, Frieske R, et al. Survey of hallucination in natural language generation. ACM Comput Surv. 2023;55(12):1-38. doi:10.1145/3571730
-10. Li©vin V, Hother CE, Motzfeldt AG, Winther O. Can large language models reason about medical questions? Patterns. 2024;5(3):100943. doi:10.1016/j.patter.2024.100943
+10. Liévin V, Hother CE, Motzfeldt AG, Winther O. Can large language models reason about medical questions? Patterns. 2024;5(3):100943. doi:10.1016/j.patter.2024.100943
 11. White J, Fu Q, Hays S, et al. A prompt pattern catalog to enhance prompt engineering with ChatGPT. arXiv:2302.11382. 2023.
 12. Jiang LY, Liu XC, Nejatbakhsh N, et al. Health system-scale language models are all-purpose prediction engines. Nature. 2023;619(7969):357-362. doi:10.1038/s41586-023-06160-y
 13. McDermott MBA, Wang S, Marinsek N, et al. Reproducibility in machine learning for health research. Sci Transl Med. 2021;13(586):eabb1655. doi:10.1126/scitranslmed.abb1655
