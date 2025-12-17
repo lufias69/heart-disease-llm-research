@@ -166,6 +166,61 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 ---
 
+## Supplementary Figure S4: Consistency Score Distributions
+
+**Description:** Violin plots showing the distribution of consistency scores (proportion of 4 runs with majority agreement) for each model across all 100 test cases, separated by prompt type.
+
+**Key Observations:**
+- All models show extremely high median consistency (>99%)
+- Qwen-Plus (Expert prompt) achieved 100% consistency on all cases
+- Very few outliers with consistency below 75%
+- Distributions are heavily right-skewed toward perfect consistency
+
+**Interpretation:** The narrow distributions and high medians confirm that inconsistency is extremely rare across all models, supporting the reliability-accuracy dissociation finding.
+
+![Supplementary Figure S4: Consistency Score Distributions](../results/evaluation/consistency_distributions.png)
+
+---
+
+## Supplementary Figure S5: Comprehensive Model Performance Comparison
+
+**Description:** Multi-panel comparison chart showing side-by-side performance metrics for all three models across both prompt types:
+- Panel A: Accuracy and F1-score
+- Panel B: Precision and Recall
+- Panel C: False Positive and False Negative counts
+- Panel D: Consistency percentages
+
+**Key Findings:**
+- Minimal variation in accuracy (48-51%) across all conditions
+- Near-perfect recall (98-100%) but extremely low precision (~50%)
+- Stark imbalance: 49-51 false positives vs 0-1 false negatives per 100 cases
+- Consistency metrics (99-100%) vastly exceed accuracy metrics
+
+**Interpretation:** Visual representation of the consistency-accuracy paradox, with performance metrics clustering tightly despite different models and prompts.
+
+![Supplementary Figure S5: Model Performance Comparison](../results/evaluation/model_comparison.png)
+
+---
+
+## Supplementary Figure S6: Threshold Optimization Analysis
+
+**Description:** Sensitivity analysis showing how diagnostic performance metrics change as the decision threshold varies from 0.0 to 1.0 for each model:
+- Accuracy, Precision, Recall curves
+- Optimal threshold points (Youden's index)
+- Current threshold (0.5) marking
+
+**Results:**
+- Optimal thresholds: GPT (0.52), Gemini (0.51), Qwen (0.52)
+- Minimal accuracy gain with threshold adjustment (<2%)
+- Recall drops dramatically above 0.6 threshold
+- No threshold achieves balanced sensitivity and specificity
+
+**Interpretation:** Threshold optimization provides negligible improvement, indicating the accuracy limitation is fundamental rather than calibration-related.
+
+![Supplementary Figure S6: Threshold Optimization](../results/evaluation/threshold_optimization.png)
+
+---
+
 ## Supplementary Materials S1: Complete Prompt Templates
 
 ### Prompt A: "Expert Cardiologist" (OLD)
