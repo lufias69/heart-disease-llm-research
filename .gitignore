@@ -94,4 +94,55 @@ dmypy.json
 *.zip
 *.tar.gz
 *.rar
+
+# ============================================
+# INTERNAL DOCUMENTATION (Not for publication)
+# ============================================
+
+# Setup & Submission Guides (internal use only)
+CHECKPOINT_QUICKSTART.md
+CHECKPOINT_SUMMARY.txt
+QUICK_START.txt
+IMPLEMENTATION_SUMMARY.md
+RESEARCH_README.md
+GitHub_SETUP_GUIDE.md
+GITHUB_UPLOAD_GUIDE.md
+CONVERSION_GUIDE.md
+MASTER_CHECKLIST.md
+SUBMISSION_README.md
+
+# Internal Documentation
+docs/
+
+# Manuscript - Internal/Draft Files
+manuscript/DRAFT_PAPER.md
+manuscript/FINAL_STATUS_REPORT.md
+manuscript/FREE_JOURNAL_OPTIONS.md
+manuscript/JAMIA_SUBMISSION_READY.md
+manuscript/PUBLICATION_ROADMAP.md
+manuscript/README_SUBMISSION.md
+manuscript/SUBMISSION_CHECKLIST.md
+manuscript/TRIMMING_SUMMARY.md
+manuscript/MEDRXIV_VERSION.pdf
+manuscript/MEDRXIV_VERSION.html
+manuscript/MEDRXIV_VERSION_with_images.html
+
+# Test/Utility Scripts (not needed for reproduction)
+scripts/test_*.py
+scripts/check_*.py
+scripts/reset_database.py
+scripts/resume_experiment.py
+scripts/SUMMARY.py
+scripts/create_sample_data.py
+
+# Test/Intermediate Results
+results/llm_predictions/test_*.csv
+results/sampling/mini_test.csv
+results/clustering/*_report.png
+
+# Early Analysis Visualizations (not in paper)
+visualizations/
+
+# Example files
+.env.example
 *.bak
