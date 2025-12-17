@@ -206,8 +206,3 @@ We thank [collaborators/institutions] for support and OpenAI, Google, and Alibab
 13. McDermott MBA, Wang S, Marinsek N, et al. Reproducibility in machine learning for health research. Sci Transl Med. 2021;13(586):eabb1655. doi:10.1126/scitranslmed.abb1655
 14. Chen IY, Pierson E, Rose S, et al. Ethical machine learning in healthcare. Annu Rev Biomed Data Sci. 2021;4:123-144. doi:10.1146/annurev-biodatasci-092820-114757
 15. Savage T, Nayak A, Gallo R, et al. Diagnostic reasoning prompts reveal the potential for large language model interpretability in medicine. NPJ Digit Med. 2024;7(1):20. doi:10.1038/s41746-024-01010-1
-
-**Word Count:** ~5,000 words (within JAMIA 5,000-word limit)
-**References:** 15 (all from 2021-2024 except dataset)
-**Figures:** 3 main figures + 3 supplementary
-**Tables:** 5 main tables
