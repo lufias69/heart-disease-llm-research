@@ -1,6 +1,6 @@
-# MANUSCRIPT DECLARATIONS
+﻿# MANUSCRIPT DECLARATIONS
 
----
+
 
 ## Funding Statement
 
@@ -9,7 +9,7 @@ This research received no specific grant from any funding agency in the public, 
 **API Access Costs:**  
 LLM API access (OpenAI GPT-4o, Google Gemini-2.0-Flash, Alibaba Qwen-Plus) was obtained through standard commercial API services. Total estimated cost for 1,200 API calls was approximately $15-20 USD, paid by the corresponding author from personal funds. No funding or sponsorship was received from OpenAI, Google, Alibaba, or any other commercial entity.
 
----
+
 
 ## Conflicts of Interest
 
@@ -29,7 +29,7 @@ The authors declare no conflicts of interest. Specifically:
 - All authors are affiliated with Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari
 - No competing academic interests exist
 
----
+
 
 ## Ethics Approval
 
@@ -50,7 +50,7 @@ This study utilized the publicly available, de-identified UCI Heart Disease Data
 **Institutional Review Board (IRB):**  
 Formal IRB approval was not required as no human subjects research was conducted. This determination is consistent with regulations governing secondary analysis of public, de-identified datasets.
 
----
+
 
 ## Informed Consent
 
@@ -62,7 +62,7 @@ No human subjects participated in this research. The study analyzed:
 2. AI model outputs (not human participants)
 3. No new patient recruitment or data collection
 
----
+
 
 ## Data Protection and Privacy
 
@@ -72,7 +72,7 @@ No human subjects participated in this research. The study analyzed:
 - Research complies with GDPR and international data protection standards
 - No additional privacy considerations were required
 
----
+
 
 ## Previous Presentation or Publication
 
@@ -88,7 +88,7 @@ This work has not been presented at conferences or published elsewhere. This is 
 **Related Work:**  
 No closely related manuscripts by the authors are under consideration or in press elsewhere.
 
----
+
 
 ## Authorship Eligibility
 
@@ -101,7 +101,7 @@ All listed authors meet the ICMJE (International Committee of Medical Journal Ed
 
 No individuals who meet authorship criteria have been omitted. No "ghost authors" or "guest authors" are included.
 
----
+
 
 ## Acknowledgments
 
@@ -117,7 +117,7 @@ No external technical, writing, or editorial support was provided.
 **No Conflicts:**  
 These acknowledgments do not constitute conflicts of interest, as no financial or material support was provided beyond standard commercial API services paid at market rates.
 
----
+
 
 ## Copyright and Licensing
 
@@ -130,7 +130,7 @@ Upon acceptance, copyright will be transferred to JAMIA/Oxford University Press 
 - Reuse for teaching and presentations
 - Data and code sharing
 
----
+
 
 ## Competing Interests for Reviewers
 
@@ -141,7 +141,7 @@ Upon acceptance, copyright will be transferred to JAMIA/Oxford University Press 
 We request the following individuals be excluded as reviewers due to potential conflicts:
 - [None at this time]
 
----
+
 
 ## Material and Data Sharing
 
@@ -153,7 +153,7 @@ The authors commit to making all data, code, and materials publicly available up
 **Timeline:**  
 Data and code are already prepared for public release and will be made available immediately upon manuscript acceptance.
 
----
+
 
 ## Generative AI Statement
 
@@ -166,12 +166,12 @@ No generative AI tools were used in the preparation of this manuscript. All writ
 **Transparency:**  
 All AI interactions are documented in the research data and code repository for full transparency.
 
----
+
 
 **Statement Date:** December 17, 2025  
 **Corresponding Author:** Syaiful Bachri Mustamin  
 **Email:** syaifulbachri@mail.ugm.ac.id
 
----
+
 
 *All co-authors have reviewed and approved these declarations.*

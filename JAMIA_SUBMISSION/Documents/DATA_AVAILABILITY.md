@@ -1,12 +1,12 @@
-# DATA AVAILABILITY STATEMENT
+﻿# DATA AVAILABILITY STATEMENT
 
----
+
 
 ## Data Sharing
 
 All data and code associated with this study are publicly available to ensure reproducibility and transparency.
 
----
+
 
 ## Source Dataset
 
@@ -19,7 +19,7 @@ All data and code associated with this study are publicly available to ensure re
 
 The original dataset is publicly available and de-identified, containing no personally identifiable information. No additional ethics approval was required for this secondary analysis of public data.
 
----
+
 
 ## Research Data
 
@@ -30,7 +30,7 @@ The repository includes:
 ### 1. **Raw Prediction Data**
 
 **Original Files (Expert Prompt - for backward compatibility):**
-- `llm_predictions/gpt_results.csv` - GPT-4o predictions (400 rows: 100 cases × 4 runs)
+- `llm_predictions/gpt_results.csv` - GPT-4o predictions (400 rows: 100 cases Ã— 4 runs)
 - `llm_predictions/gemini_results.csv` - Gemini-2.0-Flash predictions (400 rows)
 - `llm_predictions/qwen_results.csv` - Qwen-Plus predictions (400 rows)
 
@@ -44,7 +44,7 @@ The repository includes:
 - `llm_predictions/gemini_results_new.csv` - Gemini-2.0-Flash predictions (400 rows)
 - `llm_predictions/qwen_results_new.csv` - Qwen-Plus predictions (400 rows)
 
-**Total:** 2,400 predictions (3 models × 2 prompts × 100 cases × 4 runs)
+**Total:** 2,400 predictions (3 models Ã— 2 prompts Ã— 100 cases Ã— 4 runs)
 
 ### 2. **Test Set**
 - `sampling/llm_test_data.csv` - 100 selected clinical cases with ground truth labels
@@ -77,7 +77,7 @@ The repository includes:
 - `requirements.txt` - Python dependencies
 - `README.md` - Reproduction instructions
 
----
+
 
 ## Reproducibility
 
@@ -97,7 +97,7 @@ Researchers can reproduce all analyses and figures without API access using our 
 ### Detailed Instructions
 Step-by-step reproduction guide included in repository README.md
 
----
+
 
 ## API Access
 
@@ -107,7 +107,7 @@ For privacy and security, API keys are not included in the public repository. Re
 2. Configure keys according to instructions in `README.md`
 3. API access is generally free (with limits) or low-cost for research purposes
 
----
+
 
 ## Data Preservation
 
@@ -119,7 +119,7 @@ Upon manuscript acceptance, we will create a permanent archived version of the r
 
 **Expected Zenodo DOI:** [To be assigned upon archival]
 
----
+
 
 ## Contact for Data
 
@@ -133,7 +133,7 @@ Indonesia
 
 We commit to responding to all reasonable requests within 2 weeks and providing assistance for reproduction efforts.
 
----
+
 
 ## License
 
@@ -141,6 +141,6 @@ We commit to responding to all reasonable requests within 2 weeks and providing 
 **Data:** CC BY 4.0 (as per UCI dataset license)  
 **Manuscript:** Copyright retained by authors until publication
 
----
+
 
 *Last Updated: December 17, 2025*

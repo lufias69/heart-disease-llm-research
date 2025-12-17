@@ -1,8 +1,8 @@
-# AUTHOR CONTRIBUTIONS STATEMENT
+﻿# AUTHOR CONTRIBUTIONS STATEMENT
 
 Following the CRediT (Contributor Roles Taxonomy) guidelines:
 
----
+
 
 ## Dwi Anggriani
 **Roles:**
@@ -16,7 +16,7 @@ Following the CRediT (Contributor Roles Taxonomy) guidelines:
 **Contributions:**  
 D.A. contributed to the conceptualization of the research question, participated in methodology design, assisted with software implementation and validation procedures, supported formal analysis activities, and contributed to manuscript review and editing.
 
----
+
 
 ## Syaiful Bachri Mustamin (Corresponding Author)
 **Roles:**
@@ -37,7 +37,7 @@ D.A. contributed to the conceptualization of the research question, participated
 **Contributions:**  
 S.B.M. led the conceptualization and design of the study, developed the experimental methodology, implemented the software infrastructure (including the SQLite checkpoint system), conducted the validation and formal analysis, performed all LLM API interactions, curated and managed all data, wrote the original manuscript draft, created all visualizations and figures, supervised the entire project, and served as corresponding author handling all communications.
 
----
+
 
 ## Muhammad Atnang
 **Roles:**
@@ -50,7 +50,7 @@ S.B.M. led the conceptualization and design of the study, developed the experime
 **Contributions:**  
 M.A. supported methodology development, assisted with software implementation, participated in validation procedures, contributed to formal analysis activities, and contributed to manuscript review and editing.
 
----
+
 
 ## Kartini Aprilia Pratiwi Nuzry
 **Roles:**
@@ -63,7 +63,7 @@ M.A. supported methodology development, assisted with software implementation, p
 **Contributions:**  
 K.A.P.N. supported methodology design, participated in validation procedures, assisted with formal analysis, contributed to manuscript review and editing, and helped secure resources for the project.
 
----
+
 
 ## Collective Statements
 
@@ -79,7 +79,7 @@ The manuscript was primarily written by S.B.M. with input and review from all co
 **Data Access:**  
 S.B.M. had full access to all data in the study and takes responsibility for the integrity of the data and accuracy of the data analysis.
 
----
+
 
 ## AI and Automation Disclosure
 
@@ -96,6 +96,6 @@ Python scripts for statistical analysis and visualization were developed by S.B.
 **Manuscript Writing:**  
 The manuscript was written entirely by the human authors without AI assistance.
 
----
+
 
 *Date: December 17, 2025*

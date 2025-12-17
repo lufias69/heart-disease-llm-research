@@ -1,9 +1,9 @@
-# TITLE PAGE
+﻿# TITLE PAGE
 
 ## Manuscript Title
 **High Consistency, Limited Accuracy: Evaluating Large Language Models for Binary Medical Diagnosis**
 
----
+
 
 ## Authors and Affiliations
 
@@ -33,7 +33,7 @@ Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari
 Kendari, Southeast Sulawesi, Indonesia  
 ORCID: [Not available]
 
----
+
 
 ## Corresponding Author Contact Information
 
@@ -46,7 +46,7 @@ Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari
 Kendari, Southeast Sulawesi  
 Indonesia
 
----
+
 
 ## Manuscript Statistics
 
@@ -57,17 +57,17 @@ Indonesia
 **Number of Supplementary Files:** 3 (additional figures and data)  
 **Number of References:** 8
 
----
+
 
 ## Running Title
 LLM Consistency versus Accuracy in Medical Diagnosis
 
----
+
 
 ## Keywords
 Large Language Models, Medical Diagnosis, Consistency Analysis, Heart Disease, Clinical Decision Support, AI Reliability, Reproducibility
 
----
+
 
 ## Preprint Information
 **Preprint Server:** medRxiv  
@@ -75,7 +75,7 @@ Large Language Models, Medical Diagnosis, Consistency Analysis, Heart Disease, C
 **URL:** https://doi.org/10.64898/2025.12.08.25341823  
 **Posted:** December 2025
 
----
+
 
 ## Submission Date
 December 17, 2025

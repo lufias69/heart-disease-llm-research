@@ -1,8 +1,8 @@
-# Supplementary Materials
+﻿# Supplementary Materials
 
 ## High Consistency, Limited Accuracy: Evaluating Large Language Models for Binary Medical Diagnosis
 
----
+
 
 ## Supplementary Table S1: Complete Performance Metrics by Model and Prompt
 
@@ -20,7 +20,7 @@
 - PPV: Positive Predictive Value = TP / (TP + FP)
 - FP: False Positives, FN: False Negatives, TP: True Positives, TN: True Negatives
 
----
+
 
 ## Supplementary Table S2: Sample Justifications by Outcome Type
 
@@ -39,7 +39,7 @@
 **GPT-4o Justification:**
 "The patient's clinical profile indicates a high likelihood of coronary artery disease. Key indicators include a very high serum cholesterol level of 361 mg/dl and a fasting blood sugar level greater than 120 mg/dl (fbs=1.0), both significant cardiovascular risk factors. The presence of ST-T wave abnormalities on resting ECG (restecg=1.0) and a relatively high maximum heart rate for age suggest underlying cardiac stress. Although the patient has no exercise-induced angina, the cumulative risk factor burden warrants a positive diagnosis."
 
-**Clinical Note:** This case demonstrates risk factor conflation—the model identifies risk factors (high cholesterol, diabetes) but the patient does not have confirmed coronary stenosis.
+**Clinical Note:** This case demonstrates risk factor conflationâ€”the model identifies risk factors (high cholesterol, diabetes) but the patient does not have confirmed coronary stenosis.
 
 **Gemini-2.0-Flash Justification:**
 "Multiple cardiovascular risk factors are present: significantly elevated cholesterol (361 mg/dl), diabetes indicated by fasting blood sugar >120 mg/dl, and ECG abnormalities. The ST-T wave changes on resting ECG are particularly concerning for underlying ischemia. Despite the absence of exercise-induced symptoms, the constellation of risk factors suggests likely coronary artery disease."
@@ -60,7 +60,7 @@
 
 **Clinical Note:** One of only 2 false negatives across 1,200 predictions, showing the model occasionally weighs negative findings more heavily.
 
----
+
 
 ## Supplementary Table S3: Consistency Patterns by Test Case
 
@@ -87,7 +87,7 @@
 
 **Note:** Full 100-case table available in supplementary data file `detailed_consistency_by_case.csv`
 
----
+
 
 ## Supplementary Table S4: Clinical Features of Systematically Misclassified Cases
 
@@ -95,18 +95,18 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 | Feature | Mean (FP cases) | Mean (TN cases) | p-value | Interpretation |
 |---------|-----------------|-----------------|---------|----------------|
-| Age (years) | 56.2 ± 8.1 | 54.8 ± 9.2 | 0.52 | Not significant |
-| Cholesterol (mg/dl) | 267 ± 48 | 239 ± 42 | 0.01* | Higher in FP |
-| Resting BP (mm Hg) | 135 ± 19 | 129 ± 16 | 0.14 | Not significant |
-| Max Heart Rate | 145 ± 22 | 152 ± 19 | 0.13 | Not significant |
-| ST Depression (oldpeak) | 1.2 ± 1.1 | 0.8 ± 0.9 | 0.08 | Borderline |
+| Age (years) | 56.2 Â± 8.1 | 54.8 Â± 9.2 | 0.52 | Not significant |
+| Cholesterol (mg/dl) | 267 Â± 48 | 239 Â± 42 | 0.01* | Higher in FP |
+| Resting BP (mm Hg) | 135 Â± 19 | 129 Â± 16 | 0.14 | Not significant |
+| Max Heart Rate | 145 Â± 22 | 152 Â± 19 | 0.13 | Not significant |
+| ST Depression (oldpeak) | 1.2 Â± 1.1 | 0.8 Â± 0.9 | 0.08 | Borderline |
 | Exercise Angina (%) | 45% | 30% | 0.12 | Not significant |
 | Abnormal ECG (%) | 58% | 42% | 0.09 | Borderline |
-| Vessels on Fluoro (ca) | 0.8 ± 0.9 | 0.3 ± 0.6 | 0.003* | Higher in FP |
+| Vessels on Fluoro (ca) | 0.8 Â± 0.9 | 0.3 Â± 0.6 | 0.003* | Higher in FP |
 
 **Key Finding:** False positive cases had significantly higher cholesterol (p=0.01) and more vessels visible on fluoroscopy (p=0.003), suggesting models may over-weight these risk factors despite ground truth classification criteria.
 
----
+
 
 ## Supplementary Figure S1: ROC Curves and Threshold Analysis
 
@@ -125,7 +125,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 ![Supplementary Figure S1: ROC Curves and Threshold Analysis](../results/evaluation/supplementary_fig_s1_roc_curves.png)
 
----
+
 
 ## Supplementary Figure S2: Prediction Probability Distributions
 
@@ -141,7 +141,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 ![Supplementary Figure S2: Prediction Probability Distributions](../results/evaluation/supplementary_fig_s2_distributions.png)
 
----
+
 
 ## Supplementary Figure S3: Feature Importance Analysis
 
@@ -164,7 +164,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 ![Supplementary Figure S3: Feature Importance Analysis](../results/evaluation/supplementary_fig_s3_feature_correlations.png)
 
----
+
 
 ## Supplementary Figure S4: Consistency Score Distributions
 
@@ -180,7 +180,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 ![Supplementary Figure S4: Consistency Score Distributions](../results/evaluation/consistency_distributions.png)
 
----
+
 
 ## Supplementary Figure S5: Comprehensive Model Performance Comparison
 
@@ -200,7 +200,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 ![Supplementary Figure S5: Model Performance Comparison](../results/evaluation/model_comparison.png)
 
----
+
 
 ## Supplementary Figure S6: Threshold Optimization Analysis
 
@@ -219,7 +219,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 ![Supplementary Figure S6: Threshold Optimization](../results/evaluation/threshold_optimization.png)
 
----
+
 
 ## Supplementary Materials S1: Complete Prompt Templates
 
@@ -298,7 +298,7 @@ Number of Major Vessels: 2
 Thalassemia: 2 (Reversible defect)
 ```
 
----
+
 
 ## Supplementary Materials S2: Data Files
 
@@ -348,34 +348,34 @@ All data files are available in the GitHub repository: https://github.com/lufias
 - `timestamp`: ISO 8601 timestamp
 - `error`: Error message if prediction failed (NULL if successful)
 
----
+
 
 ## Supplementary Materials S3: Code Repository Structure
 
 ```
 heart-disease/
-├── llm_testing/
-│   ├── llm_tester.py          # Main LLM testing logic
-│   ├── database.py            # SQLite checkpoint system
-│   └── data_loader.py         # Data loading utilities
-├── evaluation/
-│   └── evaluator.py           # Evaluation metrics and analysis
-├── scripts/
-│   ├── check_progress.py      # Monitor experiment progress
-│   ├── resume_experiment.py   # Resume from checkpoint
-│   ├── compare_prompts.py     # Prompt comparison analysis
-│   ├── comprehensive_consistency_analysis.py  # Main analysis
-│   ├── optimize_threshold.py  # Threshold optimization
-│   └── view_errors.py         # Error inspection
-├── results/
-│   ├── llm_predictions/       # Databases and CSV files
-│   └── evaluation/            # Figures and tables
-├── manuscript/
-│   ├── DRAFT_PAPER.md         # Full manuscript
-│   ├── COVER_LETTER.md        # Journal cover letter
-│   └── SUBMISSION_CHECKLIST.md  # This file
-├── run_experiment.py          # Main experiment runner
-└── README.md                  # Repository documentation
+â”œâ”€â”€ llm_testing/
+â”‚   â”œâ”€â”€ llm_tester.py          # Main LLM testing logic
+â”‚   â”œâ”€â”€ database.py            # SQLite checkpoint system
+â”‚   â””â”€â”€ data_loader.py         # Data loading utilities
+â”œâ”€â”€ evaluation/
+â”‚   â””â”€â”€ evaluator.py           # Evaluation metrics and analysis
+â”œâ”€â”€ scripts/
+â”‚   â”œâ”€â”€ check_progress.py      # Monitor experiment progress
+â”‚   â”œâ”€â”€ resume_experiment.py   # Resume from checkpoint
+â”‚   â”œâ”€â”€ compare_prompts.py     # Prompt comparison analysis
+â”‚   â”œâ”€â”€ comprehensive_consistency_analysis.py  # Main analysis
+â”‚   â”œâ”€â”€ optimize_threshold.py  # Threshold optimization
+â”‚   â””â”€â”€ view_errors.py         # Error inspection
+â”œâ”€â”€ results/
+â”‚   â”œâ”€â”€ llm_predictions/       # Databases and CSV files
+â”‚   â””â”€â”€ evaluation/            # Figures and tables
+â”œâ”€â”€ manuscript/
+â”‚   â”œâ”€â”€ DRAFT_PAPER.md         # Full manuscript
+â”‚   â”œâ”€â”€ COVER_LETTER.md        # Journal cover letter
+â”‚   â””â”€â”€ SUBMISSION_CHECKLIST.md  # This file
+â”œâ”€â”€ run_experiment.py          # Main experiment runner
+â””â”€â”€ README.md                  # Repository documentation
 ```
 
 ### Reproduction Instructions:
@@ -402,7 +402,7 @@ python run_experiment.py
 # Note: This will make 1,200 API calls and take ~1 hour
 ```
 
----
+
 
 ## Supplementary Materials S4: Statistical Methods Details
 
@@ -426,20 +426,20 @@ For each test case i and model m, with runs r = 1,2,3,4:
 3. **Inter-model agreement:**
    ```
    For models A and B:
-   Majority_vote_i,A = 1 if ≥2/4 predictions = 1, else 0
+   Majority_vote_i,A = 1 if â‰¥2/4 predictions = 1, else 0
    Agreement_AB = sum(Majority_vote_i,A == Majority_vote_i,B) / N
    ```
 
 4. **Cohen's Kappa:**
    ```
-   κ = (p_o - p_e) / (1 - p_e)
+   Îº = (p_o - p_e) / (1 - p_e)
    where p_o = observed agreement
          p_e = expected agreement by chance
    ```
 
 ### Diagnostic Accuracy Metrics
 
-Using majority vote (≥2/4 runs predict positive):
+Using majority vote (â‰¥2/4 runs predict positive):
 
 ```
 Accuracy = (TP + TN) / (TP + TN + FP + FN)
@@ -465,7 +465,7 @@ F1-Score = 2 * (Precision * Recall) / (Precision + Recall)
 - matplotlib 3.8.0
 - seaborn 0.12.2
 
----
+
 
 ## Supplementary Discussion S1: Comparison with Traditional ML Approaches
 
@@ -492,7 +492,7 @@ Literature review of traditional machine learning performance:
 - Hybrid approaches may leverage LLM explanation + ML classification
 - LLMs may excel in different medical tasks (clinical notes, differential diagnosis lists)
 
----
+
 
 ## End of Supplementary Materials
 
