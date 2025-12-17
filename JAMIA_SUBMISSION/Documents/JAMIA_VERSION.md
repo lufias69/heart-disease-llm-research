@@ -1,7 +1,7 @@
 ﻿# High Consistency, Limited Accuracy: Evaluating Large Language Models for Binary Medical Diagnosis
 
-**Authors:** Dwi Anggriani>=¹, Syaiful Bachri Mustamin>=¹*, Muhammad Atnang>=¹, Kartini Aprilia Pratiwi Nuzry>=¹  
-**Affiliation:** >=¹Department of Information Technology, Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari, Kendari, Indonesia  
+**Authors:** Dwi Anggriani¹, Syaiful Bachri Mustamin¹*, Muhammad Atnang¹, Kartini Aprilia Pratiwi Nuzry¹  
+**Affiliation:** ¹Department of Information Technology, Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari, Kendari, Indonesia  
 **Corresponding Author:** *Syaiful Bachri Mustamin, syaifulbachri@mail.ugm.ac.id  
 **Preprint:** medRxiv DOI: [10.64898/2025.12.08.25341823](https://doi.org/10.64898/2025.12.08.25341823)
 
@@ -51,7 +51,7 @@ We implemented a SQLite-based checkpoint system enabling immediate data saving, 
 
 **Primary outcomes:**
 1. **Intra-model consistency**: Proportion of runs with majority agreement per case
-2. **Diagnostic accuracy**: Using majority voting (>=‰¥2/4 runs), we calculated accuracy, sensitivity, specificity, precision, and F1-score
+2. **Diagnostic accuracy**: Using majority voting (‰¥2/4 runs), we calculated accuracy, sensitivity, specificity, precision, and F1-score
 3. **Inter-model agreement**: Pairwise agreement and Cohen's kappa between models
 
 **Secondary outcomes:**
@@ -103,7 +103,7 @@ Diagnostic accuracy approximated random guessing (48-51%) despite 99-100% consis
 | Qwen | Expert | 51.0% | 51.0% | 100% | 67.6% | 49 | 0 |
 | Qwen | Neutral | 48.0% | 48.5% | 98% | 64.9% | 51 | 1 |
 
-Representative confusion matrices showed models predicted "disease present" for nearly all cases, with true negatives >=‰ˆ0.
+Representative confusion matrices showed models predicted "disease present" for nearly all cases, with true negatives ≈ 0.
 
 ### Prompt Sensitivity: Minimal Impact
 
@@ -139,7 +139,7 @@ This study demonstrates a critical dissociation between consistency and accuracy
 
 ### The Consistency-Accuracy Paradox
 
-High consistency indicates LLMs reliably apply learned reasoning patterns>=€”they are systematically biased rather than randomly erring. This "consistent wrongness" is arguably more concerning than random errors, suggesting fundamental limitations in medical reasoning capabilities [10] rather than simple uncertainty.
+High consistency indicates LLMs reliably apply learned reasoning patterns€”they are systematically biased rather than randomly erring. This "consistent wrongness" is arguably more concerning than random errors, suggesting fundamental limitations in medical reasoning capabilities [10] rather than simple uncertainty.
 
 Several mechanisms may explain this paradox:
 

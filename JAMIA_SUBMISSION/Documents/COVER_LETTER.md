@@ -13,7 +13,7 @@ American Medical Informatics Association
 
 Dear Dr. Bakken,
 
-Re: Submission of Original Research Article >=€“ "High Consistency, Limited Accuracy: Evaluating Large Language Models for Binary Medical Diagnosis"
+Re: Submission of Original Research Article €“ "High Consistency, Limited Accuracy: Evaluating Large Language Models for Binary Medical Diagnosis"
 
 I am writing to submit our original research manuscript titled "High Consistency, Limited Accuracy: Evaluating Large Language Models for Binary Medical Diagnosis" for consideration for publication in the Journal of the American Medical Informatics Association.
 
@@ -28,12 +28,12 @@ This study addresses a critical gap in understanding Large Language Model (LLM) 
 NOVEL FINDINGS
 
 Our study reveals a striking dissociation between consistency and accuracy:
->=€¢ All models achieved exceptional reproducibility (99-100% consistency)
->=€¢ Diagnostic accuracy remained at chance level (~50%)
->=€¢ The consistency-accuracy gap reached ~50 percentage points
->=€¢ Models showed systematic bias toward positive diagnosis (49-51 false positives vs 0-1 false negatives)
->=€¢ Prompt engineering had minimal impact (<3% prediction change)
->=€¢ Error patterns were highly systematic across all three models
+€¢ All models achieved exceptional reproducibility (99-100% consistency)
+€¢ Diagnostic accuracy remained at chance level (~50%)
+€¢ The consistency-accuracy gap reached ~50 percentage points
+• Models showed systematic bias toward positive diagnosis (49-51 false positives vs 0-1 false negatives)
+€¢ Prompt engineering had minimal impact (<3% prediction change)
+€¢ Error patterns were highly systematic across all three models
 
 SIGNIFICANCE AND IMPACT
 
@@ -50,20 +50,20 @@ This work makes several important contributions:
 WHY JAMIA?
 
 This manuscript is an excellent fit for JAMIA because:
->=€¢ Aligns with the journal's focus on AI in medicine and clinical decision support
->=€¢ Addresses timely concerns about LLM reliability in healthcare
->=€¢ Provides rigorous empirical evidence with immediate clinical implications
->=€¢ Appeals to diverse readership (clinicians, AI researchers, policymakers)
->=€¢ Contributes to ongoing dialogue about responsible AI in medicine
+€¢ Aligns with the journal's focus on AI in medicine and clinical decision support
+€¢ Addresses timely concerns about LLM reliability in healthcare
+€¢ Provides rigorous empirical evidence with immediate clinical implications
+€¢ Appeals to diverse readership (clinicians, AI researchers, policymakers)
+€¢ Contributes to ongoing dialogue about responsible AI in medicine
 
 DECLARATIONS
 
->=€¢ This manuscript represents original work not previously published or under consideration elsewhere
->=€¢ A preprint version is available on medRxiv for community feedback and rapid dissemination
->=€¢ All authors have approved the manuscript and agree with submission to JAMIA
->=€¢ We have no conflicts of interest to declare
->=€¢ The study used publicly available de-identified data and did not require IRB approval
->=€¢ All data, code, and analysis scripts will be made publicly available upon acceptance
+€¢ This manuscript represents original work not previously published or under consideration elsewhere
+€¢ A preprint version is available on medRxiv for community feedback and rapid dissemination
+€¢ All authors have approved the manuscript and agree with submission to JAMIA
+€¢ We have no conflicts of interest to declare
+€¢ The study used publicly available de-identified data and did not require IRB approval
+€¢ All data, code, and analysis scripts will be made publicly available upon acceptance
 
 COMPETING INTERESTS
 
@@ -91,17 +91,17 @@ syaifulbachri@mail.ugm.ac.id
 +62 851-5629-7969
 
 Co-authors:
-Dwi Anggriani >=€“ Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari
-Muhammad Atnang >=€“ Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari
-Kartini Aprilia Pratiwi Nuzry >=€“ Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari
+Dwi Anggriani €“ Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari
+Muhammad Atnang €“ Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari
+Kartini Aprilia Pratiwi Nuzry €“ Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari
 
 
 
 MANUSCRIPT HIGHLIGHTS (for online submission form):
 
->=€¢ First systematic evaluation of LLM consistency versus accuracy in medical diagnosis
->=€¢ 1,200 predictions from three state-of-the-art models with rigorous checkpoint system
->=€¢ 99-100% consistency but only 50% accuracy >=€“ unprecedented 50-point gap
->=€¢ Systematic positive diagnosis bias (49-51 false positives, 0-1 false negatives)
->=€¢ Prompt engineering had minimal effect, suggesting deep-rooted model behavior
->=€¢ Recommends LLMs as supplementary tools, not primary diagnostic systems
+€¢ First systematic evaluation of LLM consistency versus accuracy in medical diagnosis
+€¢ 1,200 predictions from three state-of-the-art models with rigorous checkpoint system
+€¢ 99-100% consistency but only 50% accuracy €“ unprecedented 50-point gap
+• Systematic positive diagnosis bias (49-51 false positives, 0-1 false negatives)
+€¢ Prompt engineering had minimal effect, suggesting deep-rooted model behavior
+€¢ Recommends LLMs as supplementary tools, not primary diagnostic systems
