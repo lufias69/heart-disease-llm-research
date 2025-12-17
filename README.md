@@ -155,9 +155,13 @@ python scripts/check_progress.py
 After running the experiment, results will be saved in `results/`:
 
 ### LLM Predictions
-- `llm_predictions/gpt_results.csv` - GPT-4o predictions
-- `llm_predictions/gemini_results.csv` - Gemini-2.0-Flash predictions
-- `llm_predictions/qwen_results.csv` - Qwen-Plus predictions
+- `llm_predictions/gpt_results_old.csv` - GPT-4o predictions (Expert prompt, 400 rows)
+- `llm_predictions/gpt_results_new.csv` - GPT-4o predictions (Neutral prompt, 400 rows)
+- `llm_predictions/gemini_results_old.csv` - Gemini predictions (Expert prompt, 400 rows)
+- `llm_predictions/gemini_results_new.csv` - Gemini predictions (Neutral prompt, 400 rows)
+- `llm_predictions/qwen_results_old.csv` - Qwen predictions (Expert prompt, 400 rows)
+- `llm_predictions/qwen_results_new.csv` - Qwen predictions (Neutral prompt, 400 rows)
+- Original files (`*_results.csv` without suffix) available for backward compatibility
 
 ### Evaluation Metrics
 - `evaluation/model_comparison.csv` - Accuracy, precision, recall, F1 for all models

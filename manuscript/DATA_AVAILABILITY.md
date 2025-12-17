@@ -29,13 +29,18 @@ The repository includes:
 
 ### 1. **Raw Prediction Data**
 
+**Original Files (Expert Prompt - for backward compatibility):**
+- `llm_predictions/gpt_results.csv` - GPT-4o predictions (400 rows: 100 cases × 4 runs)
+- `llm_predictions/gemini_results.csv` - Gemini-2.0-Flash predictions (400 rows)
+- `llm_predictions/qwen_results.csv` - Qwen-Plus predictions (400 rows)
+
 **Expert Prompt (OLD):**
-- `llm_predictions/gpt_results_old.csv` - GPT-4o predictions (400 rows: 100 cases × 4 runs)
+- `llm_predictions/gpt_results_old.csv` - GPT-4o predictions (400 rows)
 - `llm_predictions/gemini_results_old.csv` - Gemini-2.0-Flash predictions (400 rows)
 - `llm_predictions/qwen_results_old.csv` - Qwen-Plus predictions (400 rows)
 
 **Neutral Prompt (NEW):**
-- `llm_predictions/gpt_results_new.csv` - GPT-4o predictions (400 rows: 100 cases × 4 runs)
+- `llm_predictions/gpt_results_new.csv` - GPT-4o predictions (400 rows)
 - `llm_predictions/gemini_results_new.csv` - Gemini-2.0-Flash predictions (400 rows)
 - `llm_predictions/qwen_results_new.csv` - Qwen-Plus predictions (400 rows)
 
