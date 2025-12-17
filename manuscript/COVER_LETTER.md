@@ -65,19 +65,6 @@ DECLARATIONS
 • The study used publicly available de-identified data and did not require IRB approval
 • All data, code, and analysis scripts will be made publicly available upon acceptance
 
-SUGGESTED REVIEWERS
-
-We respectfully suggest the following experts as potential reviewers:
-
-1. Dr. [Name], [Institution] – Expert in clinical AI and diagnostic decision support
-   Email: [email]
-
-2. Dr. [Name], [Institution] – Researcher in LLM medical applications
-   Email: [email]
-
-3. Dr. [Name], [Institution] – Specialist in AI reliability and medical informatics
-   Email: [email]
-
 COMPETING INTERESTS
 
 We have no competing interests to declare. We acknowledge API access from OpenAI, Google, and Alibaba but received no funding or compensation from these organizations.
