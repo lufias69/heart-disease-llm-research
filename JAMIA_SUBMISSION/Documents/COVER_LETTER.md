@@ -71,11 +71,12 @@ We have no competing interests to declare. We acknowledge API access from OpenAI
 
 MANUSCRIPT DETAILS
 
-â€¢ Main manuscript: ~4,900 words (within JAMIA 5,000-word limit)
-â€¢ Figures: 3 main figures (7-panel comprehensive analysis, confusion matrices, prompt comparison)
-â€¢ Tables: 5 main tables
-â€¢ Supplementary materials: Detailed data, code repository, additional analyses
-â€¢ References: 8 citations (focused on high-impact recent publications)
+• Main manuscript: ~5,000 words (within JAMIA 5,000-word limit)
+• Main figures: 3 (comprehensive consistency analysis, confusion matrices, prompt comparison)
+• Supplementary figures: 6 (ROC curves, distributions, correlations, consistency violin plots, model comparison, threshold optimization)
+• Main tables: 5
+• Supplementary tables: 4
+• References: 15 citations (2021-2024, high-impact publications)
 
 We believe this work represents an important contribution to understanding LLM capabilities and limitations in clinical medicine. The findings have immediate implications for AI deployment in healthcare and will be of broad interest to your readership.
 

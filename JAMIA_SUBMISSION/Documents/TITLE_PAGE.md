@@ -50,12 +50,13 @@ Indonesia
 
 ## Manuscript Statistics
 
-**Word Count:** 4,900 words (main text, excluding abstract, references, tables, and figure legends)  
+**Word Count:** ~5,000 words (main text, excluding abstract, references, tables, and figure legends)  
 **Abstract Word Count:** 250 words  
-**Number of Figures:** 3 main figures  
-**Number of Tables:** 5 main tables  
-**Number of Supplementary Files:** 3 (additional figures and data)  
-**Number of References:** 8
+**Number of Main Figures:** 3  
+**Number of Supplementary Figures:** 6  
+**Number of Main Tables:** 5  
+**Number of Supplementary Tables:** 4  
+**Number of References:** 15
 
 
 
