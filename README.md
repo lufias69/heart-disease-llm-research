@@ -1,4 +1,4 @@
-# High Consistency, Limited Accuracy: Evaluating LLMs for Binary Medical Diagnosis
+﻿# High Consistency, Limited Accuracy: Evaluating LLMs for Binary Medical Diagnosis
 
 [![DOI](https://img.shields.io/badge/medRxiv-10.64898%2F2025.12.08.25341823-blue)](https://doi.org/10.64898/2025.12.08.25341823)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

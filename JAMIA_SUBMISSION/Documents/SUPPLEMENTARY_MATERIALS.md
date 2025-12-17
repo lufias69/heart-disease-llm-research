@@ -39,7 +39,7 @@
 **GPT-4o Justification:**
 "The patient's clinical profile indicates a high likelihood of coronary artery disease. Key indicators include a very high serum cholesterol level of 361 mg/dl and a fasting blood sugar level greater than 120 mg/dl (fbs=1.0), both significant cardiovascular risk factors. The presence of ST-T wave abnormalities on resting ECG (restecg=1.0) and a relatively high maximum heart rate for age suggest underlying cardiac stress. Although the patient has no exercise-induced angina, the cumulative risk factor burden warrants a positive diagnosis."
 
-**Clinical Note:** This case demonstrates risk factor conflation€”the model identifies risk factors (high cholesterol, diabetes) but the patient does not have confirmed coronary stenosis.
+**Clinical Note:** This case demonstrates risk factor conflation—the model identifies risk factors (high cholesterol, diabetes) but the patient does not have confirmed coronary stenosis.
 
 **Gemini-2.0-Flash Justification:**
 "Multiple cardiovascular risk factors are present: significantly elevated cholesterol (361 mg/dl), diabetes indicated by fasting blood sugar >120 mg/dl, and ECG abnormalities. The ST-T wave changes on resting ECG are particularly concerning for underlying ischemia. Despite the absence of exercise-induced symptoms, the constellation of risk factors suggests likely coronary artery disease."
@@ -354,28 +354,28 @@ All data files are available in the GitHub repository: https://github.com/lufias
 
 ```
 heart-disease/
-”œ”€”€ llm_testing/
-”‚   ”œ”€”€ llm_tester.py          # Main LLM testing logic
-”‚   ”œ”€”€ database.py            # SQLite checkpoint system
-”‚   ”””€”€ data_loader.py         # Data loading utilities
-”œ”€”€ evaluation/
-”‚   ”””€”€ evaluator.py           # Evaluation metrics and analysis
-”œ”€”€ scripts/
-”‚   ”œ”€”€ check_progress.py      # Monitor experiment progress
-”‚   ”œ”€”€ resume_experiment.py   # Resume from checkpoint
-”‚   ”œ”€”€ compare_prompts.py     # Prompt comparison analysis
-”‚   ”œ”€”€ comprehensive_consistency_analysis.py  # Main analysis
-”‚   ”œ”€”€ optimize_threshold.py  # Threshold optimization
-”‚   ”””€”€ view_errors.py         # Error inspection
-”œ”€”€ results/
-”‚   ”œ”€”€ llm_predictions/       # Databases and CSV files
-”‚   ”””€”€ evaluation/            # Figures and tables
-”œ”€”€ manuscript/
-”‚   ”œ”€”€ DRAFT_PAPER.md         # Full manuscript
-”‚   ”œ”€”€ COVER_LETTER.md        # Journal cover letter
-”‚   ”””€”€ SUBMISSION_CHECKLIST.md  # This file
-”œ”€”€ run_experiment.py          # Main experiment runner
-”””€”€ README.md                  # Repository documentation
+├── llm_testing/
+│   ├── llm_tester.py          # Main LLM testing logic
+│   ├── database.py            # SQLite checkpoint system
+│   └── data_loader.py         # Data loading utilities
+├── evaluation/
+│   └── evaluator.py           # Evaluation metrics and analysis
+├── scripts/
+│   ├── check_progress.py      # Monitor experiment progress
+│   ├── resume_experiment.py   # Resume from checkpoint
+│   ├── compare_prompts.py     # Prompt comparison analysis
+│   ├── comprehensive_consistency_analysis.py  # Main analysis
+│   ├── optimize_threshold.py  # Threshold optimization
+│   └── view_errors.py         # Error inspection
+├── results/
+│   ├── llm_predictions/       # Databases and CSV files
+│   └── evaluation/            # Figures and tables
+├── manuscript/
+│   ├── DRAFT_PAPER.md         # Full manuscript
+│   ├── COVER_LETTER.md        # Journal cover letter
+│   └── SUBMISSION_CHECKLIST.md  # This file
+├── run_experiment.py          # Main experiment runner
+└── README.md                  # Repository documentation
 ```
 
 ### Reproduction Instructions:
