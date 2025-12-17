@@ -28,10 +28,18 @@ The original dataset is publicly available and de-identified, containing no pers
 The repository includes:
 
 ### 1. **Raw Prediction Data**
-- `llm_predictions/gpt_results.csv` - GPT-4o predictions, Expert prompt (400 rows: 100 cases × 4 runs)
-- `llm_predictions/gemini_results.csv` - Gemini-2.0-Flash predictions, Expert prompt (400 rows)
-- `llm_predictions/qwen_results.csv` - Qwen-Plus predictions, Expert prompt (400 rows)
-- **Note:** Predictions for both prompts (Expert and Neutral) are included in analysis results files
+
+**Expert Prompt (OLD):**
+- `llm_predictions/gpt_results_old.csv` - GPT-4o predictions (400 rows: 100 cases × 4 runs)
+- `llm_predictions/gemini_results_old.csv` - Gemini-2.0-Flash predictions (400 rows)
+- `llm_predictions/qwen_results_old.csv` - Qwen-Plus predictions (400 rows)
+
+**Neutral Prompt (NEW):**
+- `llm_predictions/gpt_results_new.csv` - GPT-4o predictions (400 rows: 100 cases × 4 runs)
+- `llm_predictions/gemini_results_new.csv` - Gemini-2.0-Flash predictions (400 rows)
+- `llm_predictions/qwen_results_new.csv` - Qwen-Plus predictions (400 rows)
+
+**Total:** 2,400 predictions (3 models × 2 prompts × 100 cases × 4 runs)
 
 ### 2. **Test Set**
 - `sampling/llm_test_data.csv` - 100 selected clinical cases with ground truth labels
