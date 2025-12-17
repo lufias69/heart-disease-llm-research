@@ -302,7 +302,7 @@ Thalassemia: 2 (Reversible defect)
 
 ## Supplementary Materials S2: Data Files
 
-All data files are available in the GitHub repository: [URL to be added]
+All data files are available in the GitHub repository: https://github.com/lufias69/heart-disease-llm-research
 
 ### Available Files:
 

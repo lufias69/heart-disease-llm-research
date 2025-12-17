@@ -23,8 +23,7 @@ The original dataset is publicly available and de-identified, containing no pers
 
 ## Research Data
 
-**GitHub Repository:** [To be updated with actual repository URL]  
-**Expected URL:** https://github.com/[username]/heart-disease-llm-research
+**GitHub Repository:** https://github.com/lufias69/heart-disease-llm-research
 
 The repository includes:
 
