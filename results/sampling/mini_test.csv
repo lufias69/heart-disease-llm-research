@@ -1,0 +1,2 @@
+test_id,cluster,sample_type,features,ground_truth,ground_truth_label
+0,0.0,diverse,"age=57.0, sex=0.0, cp=0.0, trestbps=149.0, chol=323.0, fbs=1.0, restecg=1.0, thalach=156.0, exang=1.0, oldpeak=1.2, slope=0.0, ca=1.0, thal=3.0",1.0,Disease

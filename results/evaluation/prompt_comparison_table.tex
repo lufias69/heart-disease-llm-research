@@ -1,0 +1,16 @@
+\begin{table}[h]
+\centering
+\caption{Comparison of OLD (Biased) vs NEW (Neutral) Prompt}
+\label{tab:prompt_comparison}
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+ & \multicolumn{2}{r}{accuracy} & \multicolumn{2}{r}{f1} & \multicolumn{2}{r}{fp} & \multicolumn{2}{r}{precision} & \multicolumn{2}{r}{recall} \\
+prompt & NEW & OLD & NEW & OLD & NEW & OLD & NEW & OLD & NEW & OLD \\
+model &  &  &  &  &  &  &  &  &  &  \\
+\midrule
+GPT & 0.490000 & 0.510000 & 0.657700 & 0.675500 & 51.000000 & 49.000000 & 0.490000 & 0.510000 & 1.000000 & 1.000000 \\
+Gemini & 0.490000 & 0.510000 & 0.657700 & 0.671100 & 51.000000 & 48.000000 & 0.490000 & 0.510200 & 1.000000 & 0.980400 \\
+Qwen & 0.480000 & 0.510000 & 0.648600 & 0.675500 & 51.000000 & 49.000000 & 0.484800 & 0.510000 & 0.979600 & 1.000000 \\
+\bottomrule
+\end{tabular}
+\end{table}

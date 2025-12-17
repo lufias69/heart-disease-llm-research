@@ -1,0 +1,101 @@
+test_id,cluster,sample_type,features,ground_truth,ground_truth_label
+0,0.0,diverse,"age=48.0, sex=0.0, cp=0.0, trestbps=144.0, chol=319.0, fbs=1.0, restecg=2.0, thalach=119.0, exang=1.0, oldpeak=4.9, slope=1.0, ca=0.0, thal=2.0",0.0,No Disease
+1,0.0,diverse,"age=35.0, sex=1.0, cp=1.0, trestbps=116.0, chol=361.0, fbs=1.0, restecg=1.0, thalach=154.0, exang=0.0, oldpeak=3.1, slope=2.0, ca=4.0, thal=2.0",0.0,No Disease
+2,0.0,diverse,"age=75.0, sex=0.0, cp=0.0, trestbps=158.0, chol=392.0, fbs=1.0, restecg=0.0, thalach=115.0, exang=1.0, oldpeak=3.8, slope=1.0, ca=4.0, thal=0.0",0.0,No Disease
+3,0.0,diverse,"age=31.0, sex=1.0, cp=0.0, trestbps=119.0, chol=300.0, fbs=1.0, restecg=0.0, thalach=163.0, exang=0.0, oldpeak=2.1, slope=2.0, ca=0.0, thal=1.0",1.0,Disease
+4,0.0,diverse,"age=39.0, sex=1.0, cp=3.0, trestbps=163.0, chol=291.0, fbs=1.0, restecg=2.0, thalach=169.0, exang=1.0, oldpeak=2.7, slope=1.0, ca=1.0, thal=3.0",0.0,No Disease
+5,0.0,diverse,"age=44.0, sex=0.0, cp=0.0, trestbps=159.0, chol=304.0, fbs=1.0, restecg=1.0, thalach=193.0, exang=1.0, oldpeak=5.5, slope=1.0, ca=0.0, thal=1.0",1.0,Disease
+6,0.0,diverse,"age=42.0, sex=1.0, cp=2.0, trestbps=197.0, chol=309.0, fbs=1.0, restecg=1.0, thalach=107.0, exang=1.0, oldpeak=3.8, slope=2.0, ca=0.0, thal=3.0",1.0,Disease
+7,0.0,diverse,"age=52.0, sex=0.0, cp=2.0, trestbps=189.0, chol=286.0, fbs=1.0, restecg=1.0, thalach=128.0, exang=0.0, oldpeak=3.1, slope=2.0, ca=3.0, thal=0.0",0.0,No Disease
+8,0.0,diverse,"age=69.0, sex=1.0, cp=3.0, trestbps=143.0, chol=270.0, fbs=1.0, restecg=0.0, thalach=142.0, exang=0.0, oldpeak=0.1, slope=1.0, ca=1.0, thal=1.0",1.0,Disease
+9,0.0,diverse,"age=64.0, sex=1.0, cp=2.0, trestbps=194.0, chol=302.0, fbs=1.0, restecg=2.0, thalach=189.0, exang=0.0, oldpeak=3.4, slope=1.0, ca=3.0, thal=1.0",1.0,Disease
+10,0.0,diverse,"age=63.0, sex=1.0, cp=1.0, trestbps=144.0, chol=282.0, fbs=1.0, restecg=2.0, thalach=84.0, exang=0.0, oldpeak=3.4, slope=0.0, ca=0.0, thal=2.0",0.0,No Disease
+11,0.0,diverse,"age=52.0, sex=0.0, cp=3.0, trestbps=181.0, chol=304.0, fbs=1.0, restecg=0.0, thalach=73.0, exang=1.0, oldpeak=5.0, slope=0.0, ca=4.0, thal=3.0",0.0,No Disease
+12,0.0,diverse,"age=43.0, sex=0.0, cp=1.0, trestbps=107.0, chol=427.0, fbs=1.0, restecg=0.0, thalach=127.0, exang=1.0, oldpeak=1.8, slope=1.0, ca=1.0, thal=2.0",0.0,No Disease
+13,0.0,diverse,"age=42.0, sex=0.0, cp=0.0, trestbps=172.0, chol=420.0, fbs=1.0, restecg=0.0, thalach=189.0, exang=0.0, oldpeak=3.9, slope=0.0, ca=2.0, thal=2.0",1.0,Disease
+14,0.0,diverse,"age=60.0, sex=1.0, cp=1.0, trestbps=185.0, chol=407.0, fbs=1.0, restecg=2.0, thalach=201.0, exang=0.0, oldpeak=2.2, slope=0.0, ca=2.0, thal=3.0",0.0,No Disease
+15,0.0,diverse,"age=48.0, sex=1.0, cp=2.0, trestbps=156.0, chol=441.0, fbs=1.0, restecg=0.0, thalach=140.0, exang=0.0, oldpeak=5.0, slope=2.0, ca=0.0, thal=1.0",1.0,Disease
+16,0.0,diverse,"age=53.0, sex=0.0, cp=1.0, trestbps=191.0, chol=268.0, fbs=1.0, restecg=2.0, thalach=184.0, exang=1.0, oldpeak=4.5, slope=2.0, ca=2.0, thal=0.0",0.0,No Disease
+17,0.0,diverse,"age=36.0, sex=1.0, cp=0.0, trestbps=161.0, chol=444.0, fbs=1.0, restecg=0.0, thalach=144.0, exang=1.0, oldpeak=2.0, slope=2.0, ca=1.0, thal=1.0",0.0,No Disease
+18,0.0,diverse,"age=68.0, sex=1.0, cp=0.0, trestbps=116.0, chol=419.0, fbs=1.0, restecg=2.0, thalach=201.0, exang=0.0, oldpeak=5.2, slope=1.0, ca=3.0, thal=3.0",0.0,No Disease
+19,0.0,diverse,"age=33.0, sex=0.0, cp=2.0, trestbps=118.0, chol=261.0, fbs=1.0, restecg=1.0, thalach=196.0, exang=0.0, oldpeak=0.9, slope=1.0, ca=1.0, thal=1.0",1.0,Disease
+20,0.0,diverse,"age=77.0, sex=0.0, cp=1.0, trestbps=185.0, chol=443.0, fbs=1.0, restecg=2.0, thalach=172.0, exang=0.0, oldpeak=3.0, slope=1.0, ca=3.0, thal=2.0",1.0,Disease
+21,0.0,diverse,"age=64.0, sex=1.0, cp=1.0, trestbps=112.0, chol=257.0, fbs=1.0, restecg=0.0, thalach=79.0, exang=1.0, oldpeak=2.7, slope=0.0, ca=3.0, thal=3.0",0.0,No Disease
+22,0.0,diverse,"age=41.0, sex=1.0, cp=1.0, trestbps=112.0, chol=240.0, fbs=1.0, restecg=0.0, thalach=109.0, exang=0.0, oldpeak=5.9, slope=0.0, ca=0.0, thal=2.0",0.0,No Disease
+23,0.0,diverse,"age=29.0, sex=0.0, cp=2.0, trestbps=172.0, chol=229.0, fbs=1.0, restecg=1.0, thalach=132.0, exang=1.0, oldpeak=1.6, slope=2.0, ca=3.0, thal=3.0",0.0,No Disease
+24,0.0,diverse,"age=29.0, sex=1.0, cp=2.0, trestbps=101.0, chol=453.0, fbs=1.0, restecg=1.0, thalach=117.0, exang=1.0, oldpeak=4.1, slope=1.0, ca=2.0, thal=0.0",1.0,Disease
+25,0.0,diverse,"age=50.0, sex=0.0, cp=1.0, trestbps=192.0, chol=226.0, fbs=1.0, restecg=2.0, thalach=149.0, exang=0.0, oldpeak=1.1, slope=1.0, ca=0.0, thal=1.0",1.0,Disease
+26,0.0,diverse,"age=72.0, sex=0.0, cp=1.0, trestbps=94.0, chol=454.0, fbs=1.0, restecg=2.0, thalach=97.0, exang=0.0, oldpeak=4.3, slope=0.0, ca=2.0, thal=2.0",1.0,Disease
+27,0.0,diverse,"age=57.0, sex=0.0, cp=2.0, trestbps=140.0, chol=215.0, fbs=1.0, restecg=2.0, thalach=151.0, exang=1.0, oldpeak=2.2, slope=0.0, ca=2.0, thal=1.0",1.0,Disease
+28,0.0,diverse,"age=50.0, sex=1.0, cp=1.0, trestbps=171.0, chol=471.0, fbs=1.0, restecg=2.0, thalach=107.0, exang=0.0, oldpeak=3.9, slope=2.0, ca=4.0, thal=3.0",1.0,Disease
+29,0.0,diverse,"age=39.0, sex=0.0, cp=0.0, trestbps=154.0, chol=481.0, fbs=1.0, restecg=0.0, thalach=159.0, exang=0.0, oldpeak=6.1, slope=1.0, ca=2.0, thal=2.0",1.0,Disease
+30,0.0,diverse,"age=70.0, sex=1.0, cp=1.0, trestbps=144.0, chol=220.0, fbs=1.0, restecg=0.0, thalach=76.0, exang=0.0, oldpeak=0.1, slope=1.0, ca=0.0, thal=2.0",0.0,No Disease
+31,0.0,diverse,"age=42.0, sex=0.0, cp=1.0, trestbps=110.0, chol=201.0, fbs=1.0, restecg=2.0, thalach=134.0, exang=1.0, oldpeak=6.0, slope=0.0, ca=1.0, thal=0.0",0.0,No Disease
+32,0.0,diverse,"age=44.0, sex=1.0, cp=0.0, trestbps=101.0, chol=496.0, fbs=1.0, restecg=0.0, thalach=130.0, exang=1.0, oldpeak=0.4, slope=0.0, ca=4.0, thal=3.0",1.0,Disease
+33,0.0,diverse,"age=67.0, sex=0.0, cp=2.0, trestbps=130.0, chol=498.0, fbs=1.0, restecg=1.0, thalach=187.0, exang=0.0, oldpeak=2.3, slope=0.0, ca=2.0, thal=1.0",1.0,Disease
+34,0.0,diverse,"age=72.0, sex=0.0, cp=1.0, trestbps=118.0, chol=188.0, fbs=1.0, restecg=1.0, thalach=113.0, exang=1.0, oldpeak=3.7, slope=1.0, ca=1.0, thal=2.0",0.0,No Disease
+35,0.0,diverse,"age=67.0, sex=1.0, cp=2.0, trestbps=123.0, chol=507.0, fbs=1.0, restecg=1.0, thalach=171.0, exang=0.0, oldpeak=2.5, slope=2.0, ca=1.0, thal=3.0",1.0,Disease
+36,0.0,diverse,"age=31.0, sex=1.0, cp=1.0, trestbps=96.0, chol=194.0, fbs=1.0, restecg=1.0, thalach=87.0, exang=0.0, oldpeak=4.7, slope=1.0, ca=1.0, thal=2.0",1.0,Disease
+37,0.0,diverse,"age=77.0, sex=1.0, cp=0.0, trestbps=182.0, chol=180.0, fbs=1.0, restecg=0.0, thalach=178.0, exang=0.0, oldpeak=4.1, slope=0.0, ca=1.0, thal=0.0",0.0,No Disease
+38,0.0,diverse,"age=70.0, sex=0.0, cp=3.0, trestbps=120.0, chol=521.0, fbs=1.0, restecg=2.0, thalach=132.0, exang=0.0, oldpeak=0.8, slope=0.0, ca=1.0, thal=2.0",0.0,No Disease
+39,0.0,diverse,"age=69.0, sex=0.0, cp=2.0, trestbps=149.0, chol=163.0, fbs=1.0, restecg=1.0, thalach=192.0, exang=1.0, oldpeak=2.0, slope=2.0, ca=0.0, thal=0.0",1.0,Disease
+40,0.0,diverse,"age=35.0, sex=1.0, cp=0.0, trestbps=144.0, chol=164.0, fbs=1.0, restecg=2.0, thalach=197.0, exang=1.0, oldpeak=0.9, slope=2.0, ca=2.0, thal=2.0",0.0,No Disease
+41,0.0,diverse,"age=55.0, sex=1.0, cp=1.0, trestbps=183.0, chol=154.0, fbs=1.0, restecg=0.0, thalach=146.0, exang=0.0, oldpeak=3.8, slope=1.0, ca=4.0, thal=1.0",1.0,Disease
+42,0.0,diverse,"age=54.0, sex=1.0, cp=1.0, trestbps=105.0, chol=535.0, fbs=1.0, restecg=0.0, thalach=167.0, exang=0.0, oldpeak=0.8, slope=2.0, ca=0.0, thal=3.0",0.0,No Disease
+43,0.0,diverse,"age=34.0, sex=0.0, cp=1.0, trestbps=191.0, chol=150.0, fbs=1.0, restecg=1.0, thalach=172.0, exang=1.0, oldpeak=4.5, slope=2.0, ca=4.0, thal=3.0",1.0,Disease
+44,0.0,diverse,"age=37.0, sex=1.0, cp=3.0, trestbps=155.0, chol=549.0, fbs=1.0, restecg=2.0, thalach=158.0, exang=0.0, oldpeak=5.0, slope=1.0, ca=0.0, thal=0.0",1.0,Disease
+45,0.0,diverse,"age=77.0, sex=1.0, cp=0.0, trestbps=121.0, chol=549.0, fbs=1.0, restecg=0.0, thalach=148.0, exang=1.0, oldpeak=3.4, slope=2.0, ca=0.0, thal=3.0",1.0,Disease
+46,0.0,diverse,"age=33.0, sex=0.0, cp=0.0, trestbps=187.0, chol=554.0, fbs=1.0, restecg=2.0, thalach=179.0, exang=0.0, oldpeak=3.5, slope=1.0, ca=0.0, thal=2.0",1.0,Disease
+47,0.0,diverse,"age=30.0, sex=0.0, cp=0.0, trestbps=150.0, chol=556.0, fbs=1.0, restecg=2.0, thalach=90.0, exang=1.0, oldpeak=0.3, slope=1.0, ca=4.0, thal=2.0",1.0,Disease
+48,0.0,diverse,"age=37.0, sex=0.0, cp=3.0, trestbps=156.0, chol=560.0, fbs=1.0, restecg=1.0, thalach=77.0, exang=0.0, oldpeak=3.3, slope=0.0, ca=3.0, thal=3.0",0.0,No Disease
+49,0.0,diverse,"age=49.0, sex=1.0, cp=1.0, trestbps=194.0, chol=559.0, fbs=1.0, restecg=2.0, thalach=79.0, exang=1.0, oldpeak=2.5, slope=0.0, ca=2.0, thal=0.0",1.0,Disease
+50,1.0,diverse,"age=73.0, sex=1.0, cp=0.0, trestbps=166.0, chol=343.0, fbs=0.0, restecg=1.0, thalach=130.0, exang=0.0, oldpeak=3.8, slope=1.0, ca=2.0, thal=2.0",0.0,No Disease
+51,1.0,diverse,"age=53.0, sex=0.0, cp=0.0, trestbps=114.0, chol=398.0, fbs=0.0, restecg=2.0, thalach=120.0, exang=0.0, oldpeak=2.1, slope=1.0, ca=3.0, thal=1.0",0.0,No Disease
+52,1.0,diverse,"age=61.0, sex=0.0, cp=3.0, trestbps=98.0, chol=356.0, fbs=0.0, restecg=0.0, thalach=157.0, exang=0.0, oldpeak=5.2, slope=2.0, ca=0.0, thal=2.0",1.0,Disease
+53,1.0,diverse,"age=76.0, sex=1.0, cp=2.0, trestbps=99.0, chol=376.0, fbs=0.0, restecg=0.0, thalach=155.0, exang=1.0, oldpeak=2.5, slope=2.0, ca=3.0, thal=3.0",0.0,No Disease
+54,1.0,diverse,"age=40.0, sex=0.0, cp=3.0, trestbps=181.0, chol=321.0, fbs=0.0, restecg=0.0, thalach=102.0, exang=1.0, oldpeak=2.8, slope=0.0, ca=4.0, thal=1.0",0.0,No Disease
+55,1.0,diverse,"age=54.0, sex=0.0, cp=3.0, trestbps=161.0, chol=369.0, fbs=0.0, restecg=1.0, thalach=196.0, exang=0.0, oldpeak=3.2, slope=0.0, ca=4.0, thal=3.0",0.0,No Disease
+56,1.0,diverse,"age=49.0, sex=0.0, cp=2.0, trestbps=107.0, chol=413.0, fbs=0.0, restecg=0.0, thalach=131.0, exang=0.0, oldpeak=0.8, slope=1.0, ca=1.0, thal=2.0",1.0,Disease
+57,1.0,diverse,"age=61.0, sex=0.0, cp=1.0, trestbps=171.0, chol=339.0, fbs=0.0, restecg=2.0, thalach=71.0, exang=1.0, oldpeak=0.8, slope=2.0, ca=3.0, thal=2.0",1.0,Disease
+58,1.0,diverse,"age=43.0, sex=1.0, cp=2.0, trestbps=125.0, chol=298.0, fbs=0.0, restecg=0.0, thalach=168.0, exang=1.0, oldpeak=4.4, slope=1.0, ca=2.0, thal=1.0",1.0,Disease
+59,1.0,diverse,"age=47.0, sex=0.0, cp=2.0, trestbps=126.0, chol=410.0, fbs=0.0, restecg=2.0, thalach=184.0, exang=0.0, oldpeak=0.0, slope=1.0, ca=2.0, thal=2.0",1.0,Disease
+60,1.0,diverse,"age=39.0, sex=1.0, cp=0.0, trestbps=111.0, chol=384.0, fbs=0.0, restecg=2.0, thalach=71.0, exang=1.0, oldpeak=5.7, slope=1.0, ca=3.0, thal=1.0",0.0,No Disease
+61,1.0,diverse,"age=44.0, sex=0.0, cp=2.0, trestbps=152.0, chol=305.0, fbs=0.0, restecg=2.0, thalach=75.0, exang=1.0, oldpeak=3.8, slope=0.0, ca=2.0, thal=2.0",0.0,No Disease
+62,1.0,diverse,"age=73.0, sex=1.0, cp=0.0, trestbps=94.0, chol=379.0, fbs=0.0, restecg=2.0, thalach=78.0, exang=0.0, oldpeak=4.1, slope=2.0, ca=4.0, thal=1.0",0.0,No Disease
+63,1.0,diverse,"age=52.0, sex=0.0, cp=3.0, trestbps=179.0, chol=297.0, fbs=0.0, restecg=2.0, thalach=88.0, exang=0.0, oldpeak=2.4, slope=1.0, ca=2.0, thal=1.0",1.0,Disease
+64,1.0,diverse,"age=55.0, sex=1.0, cp=0.0, trestbps=173.0, chol=284.0, fbs=0.0, restecg=0.0, thalach=163.0, exang=1.0, oldpeak=5.6, slope=0.0, ca=4.0, thal=0.0",0.0,No Disease
+65,1.0,diverse,"age=42.0, sex=0.0, cp=0.0, trestbps=189.0, chol=282.0, fbs=0.0, restecg=0.0, thalach=120.0, exang=0.0, oldpeak=3.2, slope=0.0, ca=4.0, thal=1.0",1.0,Disease
+66,1.0,diverse,"age=77.0, sex=1.0, cp=1.0, trestbps=132.0, chol=274.0, fbs=0.0, restecg=0.0, thalach=107.0, exang=0.0, oldpeak=5.8, slope=1.0, ca=1.0, thal=2.0",1.0,Disease
+67,1.0,diverse,"age=61.0, sex=0.0, cp=3.0, trestbps=127.0, chol=447.0, fbs=0.0, restecg=1.0, thalach=114.0, exang=0.0, oldpeak=5.5, slope=0.0, ca=3.0, thal=3.0",0.0,No Disease
+68,1.0,diverse,"age=46.0, sex=1.0, cp=1.0, trestbps=187.0, chol=273.0, fbs=0.0, restecg=1.0, thalach=123.0, exang=1.0, oldpeak=6.2, slope=1.0, ca=4.0, thal=2.0",1.0,Disease
+69,1.0,diverse,"age=51.0, sex=0.0, cp=3.0, trestbps=114.0, chol=273.0, fbs=0.0, restecg=0.0, thalach=169.0, exang=0.0, oldpeak=1.1, slope=2.0, ca=0.0, thal=1.0",1.0,Disease
+70,1.0,diverse,"age=61.0, sex=1.0, cp=3.0, trestbps=191.0, chol=446.0, fbs=0.0, restecg=1.0, thalach=123.0, exang=0.0, oldpeak=0.5, slope=1.0, ca=3.0, thal=0.0",1.0,Disease
+71,1.0,diverse,"age=40.0, sex=1.0, cp=0.0, trestbps=131.0, chol=438.0, fbs=0.0, restecg=2.0, thalach=190.0, exang=0.0, oldpeak=2.9, slope=0.0, ca=0.0, thal=3.0",0.0,No Disease
+72,1.0,diverse,"age=65.0, sex=1.0, cp=1.0, trestbps=146.0, chol=443.0, fbs=0.0, restecg=1.0, thalach=196.0, exang=0.0, oldpeak=1.1, slope=1.0, ca=3.0, thal=0.0",1.0,Disease
+73,1.0,diverse,"age=36.0, sex=1.0, cp=3.0, trestbps=116.0, chol=453.0, fbs=0.0, restecg=1.0, thalach=176.0, exang=0.0, oldpeak=1.9, slope=1.0, ca=3.0, thal=0.0",0.0,No Disease
+74,1.0,diverse,"age=56.0, sex=0.0, cp=3.0, trestbps=196.0, chol=262.0, fbs=0.0, restecg=2.0, thalach=99.0, exang=1.0, oldpeak=0.8, slope=1.0, ca=3.0, thal=2.0",0.0,No Disease
+75,1.0,diverse,"age=52.0, sex=1.0, cp=3.0, trestbps=159.0, chol=248.0, fbs=0.0, restecg=0.0, thalach=166.0, exang=0.0, oldpeak=2.0, slope=2.0, ca=2.0, thal=0.0",0.0,No Disease
+76,1.0,diverse,"age=61.0, sex=0.0, cp=0.0, trestbps=118.0, chol=242.0, fbs=0.0, restecg=0.0, thalach=129.0, exang=1.0, oldpeak=3.1, slope=2.0, ca=3.0, thal=2.0",0.0,No Disease
+77,1.0,diverse,"age=39.0, sex=1.0, cp=0.0, trestbps=158.0, chol=458.0, fbs=0.0, restecg=2.0, thalach=201.0, exang=1.0, oldpeak=3.2, slope=2.0, ca=0.0, thal=3.0",0.0,No Disease
+78,1.0,diverse,"age=61.0, sex=0.0, cp=0.0, trestbps=137.0, chol=239.0, fbs=0.0, restecg=0.0, thalach=172.0, exang=0.0, oldpeak=4.9, slope=2.0, ca=2.0, thal=2.0",0.0,No Disease
+79,1.0,diverse,"age=30.0, sex=1.0, cp=3.0, trestbps=138.0, chol=488.0, fbs=0.0, restecg=1.0, thalach=111.0, exang=1.0, oldpeak=1.3, slope=2.0, ca=0.0, thal=1.0",0.0,No Disease
+80,1.0,diverse,"age=51.0, sex=1.0, cp=0.0, trestbps=126.0, chol=481.0, fbs=0.0, restecg=1.0, thalach=76.0, exang=0.0, oldpeak=3.7, slope=1.0, ca=3.0, thal=3.0",0.0,No Disease
+81,1.0,diverse,"age=51.0, sex=0.0, cp=2.0, trestbps=194.0, chol=229.0, fbs=0.0, restecg=0.0, thalach=119.0, exang=0.0, oldpeak=3.3, slope=0.0, ca=3.0, thal=2.0",1.0,Disease
+82,1.0,diverse,"age=68.0, sex=0.0, cp=2.0, trestbps=155.0, chol=486.0, fbs=0.0, restecg=0.0, thalach=71.0, exang=0.0, oldpeak=1.9, slope=0.0, ca=0.0, thal=1.0",0.0,No Disease
+83,1.0,diverse,"age=75.0, sex=1.0, cp=3.0, trestbps=98.0, chol=220.0, fbs=0.0, restecg=0.0, thalach=116.0, exang=0.0, oldpeak=3.0, slope=1.0, ca=2.0, thal=1.0",1.0,Disease
+84,1.0,diverse,"age=39.0, sex=0.0, cp=3.0, trestbps=194.0, chol=489.0, fbs=0.0, restecg=1.0, thalach=78.0, exang=0.0, oldpeak=0.6, slope=1.0, ca=2.0, thal=0.0",0.0,No Disease
+85,1.0,diverse,"age=69.0, sex=1.0, cp=3.0, trestbps=172.0, chol=217.0, fbs=0.0, restecg=1.0, thalach=188.0, exang=1.0, oldpeak=5.8, slope=1.0, ca=4.0, thal=0.0",0.0,No Disease
+86,1.0,diverse,"age=46.0, sex=1.0, cp=3.0, trestbps=143.0, chol=203.0, fbs=0.0, restecg=0.0, thalach=162.0, exang=1.0, oldpeak=0.9, slope=2.0, ca=0.0, thal=1.0",1.0,Disease
+87,1.0,diverse,"age=39.0, sex=1.0, cp=2.0, trestbps=193.0, chol=511.0, fbs=0.0, restecg=1.0, thalach=154.0, exang=1.0, oldpeak=3.9, slope=0.0, ca=2.0, thal=1.0",0.0,No Disease
+88,1.0,diverse,"age=65.0, sex=1.0, cp=0.0, trestbps=115.0, chol=194.0, fbs=0.0, restecg=2.0, thalach=91.0, exang=1.0, oldpeak=1.1, slope=1.0, ca=3.0, thal=1.0",1.0,Disease
+89,1.0,diverse,"age=45.0, sex=0.0, cp=0.0, trestbps=179.0, chol=516.0, fbs=0.0, restecg=0.0, thalach=198.0, exang=0.0, oldpeak=4.7, slope=1.0, ca=4.0, thal=2.0",1.0,Disease
+90,1.0,diverse,"age=45.0, sex=0.0, cp=3.0, trestbps=167.0, chol=524.0, fbs=0.0, restecg=1.0, thalach=200.0, exang=1.0, oldpeak=6.1, slope=1.0, ca=3.0, thal=3.0",0.0,No Disease
+91,1.0,diverse,"age=51.0, sex=1.0, cp=3.0, trestbps=124.0, chol=174.0, fbs=0.0, restecg=1.0, thalach=143.0, exang=0.0, oldpeak=2.4, slope=0.0, ca=0.0, thal=2.0",0.0,No Disease
+92,1.0,diverse,"age=52.0, sex=0.0, cp=1.0, trestbps=101.0, chol=543.0, fbs=0.0, restecg=2.0, thalach=115.0, exang=1.0, oldpeak=2.9, slope=1.0, ca=1.0, thal=1.0",1.0,Disease
+93,1.0,diverse,"age=44.0, sex=0.0, cp=0.0, trestbps=162.0, chol=544.0, fbs=0.0, restecg=0.0, thalach=192.0, exang=1.0, oldpeak=5.3, slope=0.0, ca=2.0, thal=1.0",0.0,No Disease
+94,1.0,diverse,"age=56.0, sex=1.0, cp=2.0, trestbps=174.0, chol=163.0, fbs=0.0, restecg=0.0, thalach=130.0, exang=0.0, oldpeak=0.8, slope=2.0, ca=0.0, thal=2.0",1.0,Disease
+95,1.0,diverse,"age=47.0, sex=1.0, cp=0.0, trestbps=106.0, chol=550.0, fbs=0.0, restecg=2.0, thalach=82.0, exang=0.0, oldpeak=4.5, slope=1.0, ca=2.0, thal=0.0",0.0,No Disease
+96,1.0,diverse,"age=77.0, sex=1.0, cp=0.0, trestbps=119.0, chol=560.0, fbs=0.0, restecg=2.0, thalach=180.0, exang=1.0, oldpeak=0.9, slope=1.0, ca=3.0, thal=2.0",1.0,Disease
+97,1.0,diverse,"age=69.0, sex=0.0, cp=2.0, trestbps=150.0, chol=144.0, fbs=0.0, restecg=1.0, thalach=124.0, exang=1.0, oldpeak=1.7, slope=0.0, ca=1.0, thal=1.0",0.0,No Disease
+98,1.0,diverse,"age=58.0, sex=0.0, cp=2.0, trestbps=120.0, chol=138.0, fbs=0.0, restecg=1.0, thalach=97.0, exang=1.0, oldpeak=5.4, slope=2.0, ca=4.0, thal=3.0",1.0,Disease
+99,1.0,diverse,"age=70.0, sex=1.0, cp=0.0, trestbps=127.0, chol=130.0, fbs=0.0, restecg=0.0, thalach=150.0, exang=0.0, oldpeak=4.3, slope=1.0, ca=4.0, thal=0.0",1.0,Disease

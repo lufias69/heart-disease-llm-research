@@ -1,0 +1,51 @@
+======================================================================
+LAPORAN ANALISIS PENENTUAN JUMLAH CLUSTER OPTIMAL
+======================================================================
+
+Dataset: 303 sampel, 13 fitur
+Metode: K-Means Clustering
+Range K yang diuji: 2-10
+
+======================================================================
+HASIL EVALUASI METRIK
+======================================================================
+K     Inertia         Silhouette      Davies-Bouldin 
+----------------------------------------------------------------------
+2     3615.99         0.0798          3.3232         
+3     3456.70         0.0649          3.1447         
+4     3317.57         0.0650          2.9345         
+5     3188.97         0.0645          2.7943         
+6     3080.94         0.0699          2.5817         
+7     2996.56         0.0655          2.5179         
+8     2916.97         0.0699          2.4132         
+9     2853.67         0.0677          2.4339         
+10    2788.77         0.0708          2.3788         
+----------------------------------------------------------------------
+
+======================================================================
+KESIMPULAN
+======================================================================
+
+Interpretasi Metrik:
+  • Inertia: Semakin rendah semakin baik
+  • Silhouette Score: Semakin tinggi semakin baik (rentang -1 hingga 1)
+  • Davies-Bouldin Index: Semakin rendah semakin baik
+
+K Optimal berdasarkan Silhouette Score: K = 2
+  - Silhouette Score: 0.0798
+
+REKOMENDASI: K = 2
+
+======================================================================
+HASIL CLUSTERING DENGAN K=2
+======================================================================
+
+Distribusi Sampel per Cluster:
+  Cluster 0: 145 sampel (47.9%)
+  Cluster 1: 158 sampel (52.1%)
+
+Perbandingan dengan Label Asli:
+Target    0   1
+Cluster        
+0        68  77
+1        78  80
