@@ -1,11 +1,76 @@
-﻿# High Consistency, Limited Accuracy: Evaluating Large Language Models for Binary Diagnosis
+# TITLE PAGE
 
-**MANUSCRIPT FORMATTING: This document should be double-spaced when submitted.**
+## Manuscript Title
+**High Consistency, Limited Accuracy: Evaluating Large Language Models for Binary Medical Diagnosis**
 
-**Authors:** Dwi Anggriani, S.Kom.¹, Syaiful Bachri Mustamin, M.Cs.¹*, Muhammad Atnang, S.Kom., M.Kom.¹, Kartini Aprilia Pratiwi Nuzry, S.Kom., M.MT.¹  
-**Affiliation:** ¹Department of Information Technology, Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari, Kendari, Indonesia  
-**Corresponding Author:** *Syaiful Bachri Mustamin, syaifulbachri@mail.ugm.ac.id  
-**Preprint:** medRxiv DOI: [10.64898/2025.12.08.25341823](https://doi.org/10.64898/2025.12.08.25341823)
+**MANUSCRIPT FORMATTING NOTE:** This document should be double-spaced (2.0 line spacing) when submitted in Word format.
+
+---
+
+## Authors and Affiliations
+
+**Dwi Anggriani, S.Kom.**  
+Department of Information Technology  
+Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari  
+Kendari, Southeast Sulawesi, Indonesia  
+ORCID: https://orcid.org/0009-0007-4265-1935
+
+**Syaiful Bachri Mustamin, M.Cs.** (Corresponding Author)  
+Department of Information Technology  
+Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari  
+Kendari, Southeast Sulawesi, Indonesia  
+Email: syaifulbachri@mail.ugm.ac.id  
+Phone: +62 851-5629-7969  
+ORCID: https://orcid.org/0009-0005-0456-8618
+
+**Muhammad Atnang, S.Kom., M.Kom.**  
+Department of Information Technology  
+Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari  
+Kendari, Southeast Sulawesi, Indonesia  
+ORCID: [Not available]
+
+**Kartini Aprilia Pratiwi Nuzry, S.Kom., M.MT.**  
+Department of Information Technology  
+Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari  
+Kendari, Southeast Sulawesi, Indonesia  
+ORCID: [Not available]
+
+---
+
+## Corresponding Author Contact Information
+
+**Name:** Syaiful Bachri Mustamin  
+**Email:** syaifulbachri@mail.ugm.ac.id  
+**Phone:** +62 851-5629-7969  
+**Address:**  
+Department of Information Technology  
+Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari  
+Kendari, Southeast Sulawesi  
+Indonesia
+
+---
+
+## Keywords (Maximum 5)
+Large Language Models; Medical Diagnosis; Consistency Analysis; Heart Disease; Clinical Decision Support
+
+---
+
+## Manuscript Statistics
+- **Word Count:** Approximately 1,700 words (excluding title page, abstract, references, tables, and figure legends)
+- **Number of Tables:** 4 (main text) + 5 supplementary tables
+- **Number of Figures:** 3 (main text) + 6 supplementary figures
+- **Number of References:** 15
+
+---
+
+## Preprint Information
+**medRxiv DOI:** [10.64898/2025.12.08.25341823](https://doi.org/10.64898/2025.12.08.25341823)
+
+---
+
+<div style="page-break-after: always;"></div>
+
+# MANUSCRIPT
 
 ## Abstract
 
@@ -19,9 +84,13 @@
 
 **Conclusions:** Our findings reveal a critical dissociation between consistency and accuracy in LLM medical diagnosis. While LLMs demonstrate remarkable reproducibility, their tendency toward over-diagnosis and limited discriminative accuracy constrain direct clinical utility. Results suggest LLMs may be better suited as supplementary decision-support tools rather than primary diagnostic systems.
 
-**Keywords:** Large Language Models, Medical Diagnosis, Consistency Analysis, Heart Disease, Clinical Decision Support, AI Reliability, Reproducibility
+**Keywords:** Large Language Models, Medical Diagnosis, Consistency Analysis, Heart Disease, Clinical Decision Support
 
-## Introduction
+---
+
+# MAIN TEXT
+
+## INTRODUCTION
 
 Large Language Models (LLMs) have emerged as promising tools for clinical applications, demonstrating impressive performance on medical licensing examinations and case analysis [1-3]. However, their deployment in clinical settings raises critical questions about reliability and consistency. While traditional diagnostic tools are expected to yield reproducible results, LLMs employ stochastic generation that can lead to varying outputs [4], with documented tendencies toward hallucinations and inconsistent reasoning [9,10]. Reproducibility challenges in AI systems have been extensively documented [13], yet remain incompletely characterized for medical LLMs.
 
@@ -29,7 +98,9 @@ Despite growing literature on LLM performance in medical question-answering [5,6
 
 This study addresses these gaps through comprehensive evaluation of three state-of-the-art LLMs on binary heart disease diagnosis. Our aims were to: (1) quantify intra-model consistency across repeated runs, (2) evaluate inter-model agreement, (3) measure diagnostic accuracy relative to consistency, (4) assess prompt sensitivity, and (5) analyze error patterns to determine if mistakes are random or systematic.
 
-## Methods
+---
+
+## METHODS
 
 ### Dataset and Study Design
 
@@ -62,48 +133,56 @@ We implemented a SQLite-based checkpoint system enabling immediate data saving, 
 
 Statistical analyses used Python with pandas, scikit-learn, and scipy. Significance was set at p<0.05.
 
-## Results
+---
+
+## RESULTS
 
 ### Intra-Model Consistency: Exceptional Reproducibility
 
 All models demonstrated remarkably high consistency (Table 1, Figure 1, Supplementary Table S3). Qwen-Plus achieved perfect consistency (100%) with the expert prompt, never varying across 4 independent runs. GPT-4o and Gemini-2.0-Flash showed 99.0-99.5% average consistency. Notably, 96-100% of cases achieved perfect agreement (4/4 identical predictions), and minimum consistency never fell below 50%.
 
-**Table 1. Intra-Model Consistency**
+**Table 1. Intra-Model Consistency Across All Cases**
 
-| Model | Prompt | Avg Consistency | Min | Perfect (%) |
-|-------|--------|-----------------|-----|-------------|
-| GPT | Expert | 99.25% | 50% | 98% |
-| GPT | Neutral | 99.00% | 75% | 96% |
-| Gemini | Expert | 99.50% | 75% | 98% |
-| Gemini | Neutral | 99.25% | 50% | 98% |
-| Qwen | Expert | **100.00%** | 100% | 100% |
-| Qwen | Neutral | 99.75% | 75% | 99% |
+| Model | Prompt | Avg Consistency | Min Consistency | Perfect Agreement (%) |
+|-------|--------|-----------------|-----------------|----------------------|
+| GPT-4o | Expert | 99.25% | 50% | 98% |
+| GPT-4o | Neutral | 99.00% | 75% | 96% |
+| Gemini-2.0-Flash | Expert | 99.50% | 75% | 98% |
+| Gemini-2.0-Flash | Neutral | 99.25% | 50% | 98% |
+| Qwen-Plus | Expert | **100.00%** | 100% | 100% |
+| Qwen-Plus | Neutral | 99.75% | 75% | 99% |
+
+*Note: Consistency calculated as proportion of 4 independent runs with majority agreement. Perfect agreement indicates all 4 runs yielded identical predictions. See Supplementary Table S1 for complete performance metrics and Supplementary Table S3 for detailed consistency patterns.*
 
 ### Inter-Model Agreement: High Consensus
 
-Models showed 98-100% pairwise agreement, indicating remarkably similar reasoning patterns (Table 2). Three-way agreement (all models concur) occurred in 98-99% of cases. Cohen's kappa values near zero reflected extreme class imbalance (nearly all positive predictions) rather than lack of agreement.
+Models showed 98-100% pairwise agreement, indicating remarkably similar reasoning patterns (Table 2, Supplementary Table S4). Three-way agreement (all models concur) occurred in 98-99% of cases. Cohen's kappa values near zero reflected extreme class imbalance (nearly all positive predictions) rather than lack of agreement.
 
-**Table 2. Inter-Model Agreement**
+**Table 2. Inter-Model Agreement Rates**
 
 | Prompt | GPT-Gemini | GPT-Qwen | Gemini-Qwen | All 3 Agree |
 |--------|------------|----------|-------------|-------------|
 | Expert | 98.0% | 100.0% | 98.0% | 98% |
 | Neutral | 100.0% | 99.0% | 99.0% | 99% |
 
+*Note: Pairwise agreement calculated using majority-voted predictions. "All 3 Agree" indicates cases where all three models produced identical diagnosis. See Supplementary Table S4 for detailed clinical feature analysis.*
+
 ### Diagnostic Accuracy: Limited Despite High Consistency
 
 Diagnostic accuracy approximated random guessing (48-51%) despite 99-100% consistency (Table 3, Supplementary Table S1). Models achieved perfect or near-perfect recall (98-100%) but extremely poor specificity (~0-2%), generating 49-51 false positives versus 0-1 false negatives. This created a consistency-accuracy gap of approximately 50 percentage points.
 
-**Table 3. Diagnostic Performance**
+**Table 3. Diagnostic Performance Metrics**
 
-| Model | Prompt | Accuracy | Precision | Recall | F1 | FP | FN |
-|-------|--------|----------|-----------|--------|-----|----|----|
-| GPT | Expert | 51.0% | 51.0% | 100% | 67.6% | 49 | 0 |
-| GPT | Neutral | 49.0% | 49.0% | 100% | 65.8% | 51 | 0 |
-| Gemini | Expert | 51.0% | 51.0% | 98% | 67.1% | 48 | 1 |
-| Gemini | Neutral | 49.0% | 49.0% | 100% | 65.8% | 51 | 0 |
-| Qwen | Expert | 51.0% | 51.0% | 100% | 67.6% | 49 | 0 |
-| Qwen | Neutral | 48.0% | 48.5% | 98% | 64.9% | 51 | 1 |
+| Model | Prompt | Accuracy | Precision | Recall | F1-Score | False Positives | False Negatives |
+|-------|--------|----------|-----------|--------|----------|----------------|----------------|
+| GPT-4o | Expert | 51.0% | 51.0% | 100.0% | 67.6% | 49 | 0 |
+| GPT-4o | Neutral | 49.0% | 49.0% | 100.0% | 65.8% | 51 | 0 |
+| Gemini-2.0-Flash | Expert | 51.0% | 51.0% | 98.0% | 67.1% | 48 | 1 |
+| Gemini-2.0-Flash | Neutral | 49.0% | 49.0% | 100.0% | 65.8% | 51 | 0 |
+| Qwen-Plus | Expert | 51.0% | 51.0% | 100.0% | 67.6% | 49 | 0 |
+| Qwen-Plus | Neutral | 48.0% | 48.5% | 98.0% | 64.9% | 51 | 1 |
+
+*Note: Metrics calculated using majority voting (≥2/4 runs). Baseline prevalence: 51% positive. See Supplementary Table S2 for representative sample predictions with justifications and Supplementary Table S1 for complete statistical analysis.*
 
 Representative confusion matrices (Figure 2) showed models predicted "disease present" for nearly all cases, with true negatives ≈ 0.
 
@@ -111,19 +190,25 @@ Representative confusion matrices (Figure 2) showed models predicted "disease pr
 
 Changing from expert to neutral prompt had minimal effect (Supplementary Table S5, Figure 3). GPT-4o showed zero sensitivity (100% identical predictions), while Gemini and Qwen changed only 1-3 predictions (1-3% of cases). This suggests diagnostic behavior is deeply encoded rather than easily modifiable through prompting.
 
+### Error Patterns: Systematic Rather Than Random
+
 Errors were highly systematic rather than random (Table 4). In 98-99% of cases, all three models either succeeded together or failed together. Only 1-2% showed model disagreement, indicating shared reasoning patterns or biases.
 
-**Table 4. Error Consistency**
+**Table 4. Error Pattern Consistency Across Models**
 
-| Pattern | Expert | Neutral |
-|---------|--------|---------|
-| All correct | 50% | 48% |
-| All wrong | 48% | 51% |
-| Mixed | 2% | 1% |
+| Pattern | Expert Prompt | Neutral Prompt |
+|---------|--------------|----------------|
+| All Models Correct | 50% | 48% |
+| All Models Wrong | 48% | 51% |
+| Mixed Results | 2% | 1% |
+
+*Note: "All Models Correct" indicates cases where all three models provided accurate diagnosis. "All Models Wrong" indicates shared errors. "Mixed Results" indicates disagreement among models. See Supplementary Table S5 for prompt robustness analysis.*
 
 Qualitative analysis (Supplementary Table S2, Supplementary Table S4) revealed models consistently cited elevated cholesterol, abnormal ECG findings, or exercise abnormalities as disease evidence, even when ground truth indicated absence of significant stenosis, suggesting risk factor conflation with diagnostic criteria.
 
-## Discussion
+---
+
+## DISCUSSION
 
 ### Principal Findings
 
@@ -167,9 +252,9 @@ Key limitations include: single condition (heart disease may not generalize), bi
 
 Important future work includes mechanistic studies examining which parameters LLMs prioritize, improvement strategies testing fine-tuning and ensemble approaches, broader evaluations across diverse diagnostic tasks, comparison with human physicians for baseline performance, and theoretical development of consistency-accuracy frameworks.
 
+---
 
-
-## Conclusions
+## CONCLUSIONS
 
 This study provides rigorous evidence that LLMs achieve exceptional consistency (99-100%) but limited accuracy (~50%) in binary medical diagnosis. This consistency-accuracy dissociation represents a fundamental challenge for clinical deployment. Our findings indicate high consistency does not guarantee accuracy, diagnostic behavior is resistant to prompt engineering, errors are systematic rather than random, and LLMs show strong positive diagnosis bias.
 
@@ -177,24 +262,73 @@ Current general-purpose LLMs are better suited as supplementary decision support
 
 This work contributes to nuanced understanding of LLM capabilities and limitations in healthcare, informing responsible development and deployment of AI-assisted clinical decision support systems.
 
-## Acknowledgments
+---
+
+## ACKNOWLEDGMENTS
 
 We thank Institut Sains Teknologi dan Kesehatan 'Aisyiyah Kendari for institutional support. We acknowledge OpenAI, Google, and Alibaba Cloud for providing API access to GPT-4o, Gemini-2.0-Flash, and Qwen-Plus respectively through standard commercial services. We thank the UCI Machine Learning Repository and the original data collectors (Janosi, Steinbrunn, Pfisterer, and Detrano) for making the Heart Disease dataset publicly available.
 
-## References
+---
+
+## COMPETING INTERESTS
+
+The authors declare no competing interests.
+
+---
+
+## FUNDING
+
+This research received no specific grant from any funding agency in the public, commercial, or not-for-profit sectors.
+
+---
+
+## DATA AVAILABILITY
+
+The UCI Heart Disease dataset used in this study is publicly available from the UCI Machine Learning Repository (https://archive.ics.uci.edu/dataset/45/heart+disease). All analysis code, experiment results, and supplementary materials are available at [repository link to be added upon acceptance].
+
+---
+
+## REFERENCES
 
 1. Thirunavukarasu AJ, Ting DSJ, Elangovan K, et al. Large language models in medicine. Nat Med. 2023;29(8):1930-1940. doi:10.1038/s41591-023-02448-8
+
 2. Lee P, Bubeck S, Petro J. Benefits, limits, and risks of GPT-4 as an AI chatbot for medicine. N Engl J Med. 2023;388(13):1233-1239. doi:10.1056/NEJMsr2214184
+
 3. Singhal K, Azizi S, Tu T, et al. Large language models encode clinical knowledge. Nature. 2023;620(7972):172-180. doi:10.1038/s41586-023-06291-2
+
 4. Kung TH, Cheatham M, Medenilla A, et al. Performance of ChatGPT on USMLE: Potential for AI-assisted medical education using large language models. PLOS Digit Health. 2023;2(2):e0000198. doi:10.1371/journal.pdig.0000198
+
 5. Nori H, Lee YT, Zhang S, et al. Can Generalist Foundation Models Outcompete Special-Purpose Tuning? Case Study in Medicine. arXiv:2311.16452. 2023.
+
 6. Wang S, Zhao Z, Ouyang X, et al. ChatCAD: Interactive Computer-Aided Diagnosis on Medical Images using Large Language Models. arXiv:2302.07257. 2023.
+
 7. Moor M, Banerjee O, Abad ZSH, et al. Foundation models for generalist medical artificial intelligence. Nature. 2023;616(7956):259-265. doi:10.1038/s41586-023-05881-4
+
 8. Janosi A, Steinbrunn W, Pfisterer M, Detrano R. Heart Disease [Dataset]. UCI Machine Learning Repository. 1988. doi:10.24432/C52P4X
+
 9. Ji Z, Lee N, Frieske R, et al. Survey of hallucination in natural language generation. ACM Comput Surv. 2023;55(12):1-38. doi:10.1145/3571730
+
 10. Liévin V, Hother CE, Motzfeldt AG, Winther O. Can large language models reason about medical questions? Patterns. 2024;5(3):100943. doi:10.1016/j.patter.2024.100943
+
 11. White J, Fu Q, Hays S, et al. A prompt pattern catalog to enhance prompt engineering with ChatGPT. arXiv:2302.11382. 2023.
+
 12. Jiang LY, Liu XC, Nejatbakhsh N, et al. Health system-scale language models are all-purpose prediction engines. Nature. 2023;619(7969):357-362. doi:10.1038/s41586-023-06160-y
+
 13. McDermott MBA, Wang S, Marinsek N, et al. Reproducibility in machine learning for health research. Sci Transl Med. 2021;13(586):eabb1655. doi:10.1126/scitranslmed.abb1655
+
 14. Chen IY, Pierson E, Rose S, et al. Ethical machine learning in healthcare. Annu Rev Biomed Data Sci. 2021;4:123-144. doi:10.1146/annurev-biodatasci-092820-114757
+
 15. Savage T, Nayak A, Gallo R, et al. Diagnostic reasoning prompts reveal the potential for large language model interpretability in medicine. NPJ Digit Med. 2024;7(1):20. doi:10.1038/s41746-024-01010-1
+
+---
+
+## FIGURE LEGENDS
+
+**Figure 1. Intra-Model Consistency Patterns**  
+Violin plots showing distribution of consistency scores across 100 test cases for each model-prompt combination. Y-axis represents consistency percentage (proportion of 4 independent runs with majority agreement). Qwen-Plus with expert prompt achieved perfect consistency (100%), while other configurations showed 99-100% consistency. Box plots inside violins indicate median and quartiles.
+
+**Figure 2. Confusion Matrices for All Model-Prompt Combinations**  
+Heatmaps showing true positive (TP), false positive (FP), true negative (TN), and false negative (FN) counts for each model-prompt pair. All models exhibit strong bias toward positive diagnosis, with near-zero true negatives (0-1) and high false positives (48-51), resulting in ~50% accuracy despite 99-100% consistency.
+
+**Figure 3. Prompt Sensitivity Analysis**  
+Bar chart comparing diagnostic predictions between expert and neutral prompts for each model. Y-axis shows percentage of cases with identical predictions across prompts. GPT-4o showed 100% consistency (zero prompt sensitivity), while Gemini-2.0-Flash and Qwen-Plus showed 97-99% consistency (1-3% changes), indicating diagnostic behavior is largely resistant to prompt variation.

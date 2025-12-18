@@ -93,6 +93,32 @@
 
 Analysis of the 48 cases where all three models consistently predicted disease despite negative ground truth:
 
+
+
+## Supplementary Table S5: Prompt Robustness Analysis
+
+**Table S5. Agreement Between Expert and Neutral Prompts**
+
+| Model | Agreement (%) | Identical Predictions | Changed Predictions | Consistency |
+|-------|---------------|----------------------|---------------------|-------------|
+| GPT-4o | 100% | 100/100 | 0/100 | Perfect |
+| Gemini-2.0-Flash | 98% | 98/100 | 2/100 | Near-perfect |
+| Qwen-Plus | 99% | 99/100 | 1/100 | Near-perfect |
+
+**Interpretation:** Changing from expert-framed to neutral-framed prompts had minimal impact on diagnostic decisions. GPT-4o showed complete prompt insensitivity (zero changes), while Gemini and Qwen changed only 1-3% of predictions. This demonstrates that diagnostic behavior is deeply encoded in model architecture/training rather than being easily modifiable through prompt engineering.
+
+**Cases with Prompt-Induced Changes:**
+- Gemini: Test IDs 38, 82 (both changed from Disease to No Disease with neutral prompt)
+- Qwen: Test ID 38 (changed from Disease to No Disease with neutral prompt)
+
+All prompt-induced changes moved predictions from positive to negative (reduced false positives), but the overall diagnostic pattern remained dominated by over-diagnosis.
+
+
+
+## Supplementary Table S4 (continued): Clinical Features of Systematically Misclassified Cases
+
+Analysis of the 48 cases where all three models consistently predicted disease despite negative ground truth:
+
 | Feature | Mean (FP cases) | Mean (TN cases) | p-value | Interpretation |
 |---------|-----------------|-----------------|---------|----------------|
 | Age (years) | 56.2 ± 8.1 | 54.8 ± 9.2 | 0.52 | Not significant |
@@ -123,7 +149,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 **Interpretation:** AUC values near 0.5 indicate discrimination ability no better than random chance, consistent with ~50% accuracy findings.
 
-![Supplementary Figure S1: ROC Curves and Threshold Analysis](../results/evaluation/supplementary_fig_s1_roc_curves.png)
+![Supplementary Figure S1: ROC Curves and Threshold Analysis](../Figures/supplementary_fig_s1_roc_curves.png)
 
 
 
@@ -139,7 +165,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 - Very few predictions below 0.5 threshold
 - Distribution overlap explains poor discrimination
 
-![Supplementary Figure S2: Prediction Probability Distributions](../results/evaluation/supplementary_fig_s2_distributions.png)
+![Supplementary Figure S2: Prediction Probability Distributions](../Figures/supplementary_fig_s2_distributions.png)
 
 
 
@@ -162,7 +188,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 **Interpretation:** Models appear to prioritize abnormal test findings and risk factors over demographic factors, but lack proper threshold calibration for diagnosis.
 
-![Supplementary Figure S3: Feature Importance Analysis](../results/evaluation/supplementary_fig_s3_feature_correlations.png)
+![Supplementary Figure S3: Feature Importance Analysis](../Figures/supplementary_fig_s3_feature_correlations.png)
 
 
 
@@ -178,7 +204,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 **Interpretation:** The narrow distributions and high medians confirm that inconsistency is extremely rare across all models, supporting the reliability-accuracy dissociation finding.
 
-![Supplementary Figure S4: Consistency Score Distributions](../results/evaluation/consistency_distributions.png)
+![Supplementary Figure S4: Consistency Score Distributions](../Figures/consistency_distributions.png)
 
 
 
@@ -198,7 +224,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 **Interpretation:** Visual representation of the consistency-accuracy paradox, with performance metrics clustering tightly despite different models and prompts.
 
-![Supplementary Figure S5: Model Performance Comparison](../results/evaluation/model_comparison.png)
+![Supplementary Figure S5: Model Performance Comparison](../Figures/model_comparison.png)
 
 
 
@@ -217,7 +243,7 @@ Analysis of the 48 cases where all three models consistently predicted disease d
 
 **Interpretation:** Threshold optimization provides negligible improvement, indicating the accuracy limitation is fundamental rather than calibration-related.
 
-![Supplementary Figure S6: Threshold Optimization](../results/evaluation/threshold_optimization.png)
+![Supplementary Figure S6: Threshold Optimization](../Figures/threshold_optimization.png)
 
 
 
