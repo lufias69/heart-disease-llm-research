@@ -1,0 +1,47 @@
+# INSTRUCTIONS: Embed Figures in MULTIMEDIA_APPENDIX_1.docx
+
+## Steps to Complete Supplementary File:
+
+1. **Open:** MULTIMEDIA_APPENDIX_1.docx in Microsoft Word
+
+2. **For each figure section (S1-S6), insert actual image:**
+
+   **Figure S1 location:** Line ~152
+   - Delete placeholder text: ![Supplementary Figure S1...]
+   - Click: Insert → Pictures → This Device
+   - Browse to: E:\project\Riset\heart-disease\JAMIA_SUBMISSION\Supplementary\FigureS1.png
+   - Insert image
+   - Right-click image → Wrap Text → "In line with text"
+   - Resize to fit page width (6.5 inches recommended)
+
+   **Figure S2 location:** Line ~168
+   - Same process with FigureS2.png
+
+   **Figure S3 location:** Line ~191
+   - Same process with FigureS3.png
+
+   **Figure S4 location:** Line ~207
+   - Same process with FigureS4.png
+
+   **Figure S5 location:** Line ~227
+   - Same process with FigureS5.png
+
+   **Figure S6 location:** Line ~246
+   - Same process with FigureS6.png
+
+3. **Save:** Save as MULTIMEDIA_APPENDIX_1_FINAL.docx
+
+4. **Verify:** Check file size < 10 MB (JMIR limit)
+
+5. **Upload:** Use this file as single supplementary file
+
+---
+
+## Alternative: Use PowerPoint Script
+
+If you want automatic embedding, I can create a PowerPoint script to do this automatically.
+
+---
+
+**Estimated time:** 10 minutes manually
+**File size expected:** ~2-3 MB (within JMIR limits)

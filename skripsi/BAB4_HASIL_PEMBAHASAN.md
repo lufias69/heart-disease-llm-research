@@ -23,7 +23,58 @@ Bagian ini menyajikan hasil evaluasi komprehensif untuk menentukan jumlah cluste
 
 Elbow Method digunakan untuk mengidentifikasi titik "siku" pada grafik K vs Inertia, yang menunjukkan trade-off optimal antara jumlah cluster dan kualitas clustering.
 
+**� Elbow Method & Inertia**
+
+Teknik visual untuk menentukan K optimal dengan mencari "titik siku" di mana penambahan cluster tidak lagi memberikan improvement signifikan.
+
+**Formula:** Inertia = $\sum_{i=1}^{n} \min_{\mu_j \in C} (||x_i - \mu_j||^2)$ (total jarak kuadrat data ke centroid terdekat)
+
+**Cara Interpretasi:**
+• Nilai rendah = cluster kompak (baik)
+• Cari K di mana penurunan % mulai landai (<3%) = "siku"
+• Setelah siku, adding cluster = diminishing returns
+
+**Dalam penelitian ini:** K=2 menunjukkan "siku" (penurunan setelahnya <4%), konsisten dengan tujuan stratified sampling.
+
+---
+
 #### Tabel Hasil Inertia untuk K=2 hingga K=10
+
+**� CARA MEMBACA TABEL INERTIA:**
+
+**Struktur Kolom:**
+1. **Kolom K**: Jumlah cluster yang diuji (2 hingga 10)
+2. **Kolom Inertia**: Total jarak squared dari semua data ke centroid terdekat (semakin kecil semakin baik)
+3. **Kolom Penurunan**: Berapa banyak Inertia berkurang dibanding K sebelumnya (nilai absolut)
+4. **Kolom Penurunan (%)**: Persentase penurunan (untuk membandingkan impact relatif)
+
+**Langkah Membaca:**
+
+**Step 1:** Scan kolom "Inertia" dari atas ke bawah
+- Perhatikan: Nilai selalu turun (3615.99 → 2788.77)
+- Ini normal - lebih banyak cluster = inertia lebih rendah
+
+**Step 2:** Fokus ke kolom "Penurunan (%)"
+- Cari di mana persentase **berubah drastis** (dari besar ke kecil)
+- Contoh: 4.4% → 4.0% → 3.9% → 3.4% → **2.7%** ← Penurunan melambat di sini!
+
+**Step 3:** Identifikasi "Siku" (Elbow Point)
+- "Siku" = titik di mana penurunan % mulai landai (<3%)
+- Dalam tabel ini: Setelah K=3, penurunan < 4%
+- **Interpretasi: K=2 atau K=3 adalah kandidat optimal**
+
+**Tips Membaca:**
+- ✅ Penurunan >4% = Adding cluster masih sangat berguna
+- ⚠️ Penurunan 2-4% = Marginal benefit (might be OK to stop)
+- ❌ Penurunan <2% = Diminishing returns (not worth adding more clusters)
+
+**Contoh Analisis:**
+- K=2 ke K=3: Turun 4.4% → Still significant improvement
+- K=3 ke K=4: Turun 4.0% → Still decent
+- K=6 ke K=7: Turun 2.7% → Marginal
+- K=9 ke K=10: Turun 2.3% → Minimal benefit
+
+**Kesimpulan dari Tabel:** "Siku" ada di sekitar **K=2-3** karena setelah itu penurunan melambat.
 
 | K | Inertia | Penurunan | Penurunan (%) |
 |---|---------|-----------|---------------|
@@ -63,7 +114,31 @@ Namun, Elbow Method tidak memberikan sinyal yang sangat jelas karena tidak ada "
 
 **Gambar 4.1: Evaluasi Komprehensif untuk Menentukan Jumlah Cluster Optimal**
 
-Grafik ini menampilkan hasil evaluasi tiga metrik berbeda untuk menentukan K optimal:
+**� CARA MEMBACA:**
+
+**APA YANG DILIHAT:** 3-panel vertical plot (Elbow - Silhouette - Davies-Bouldin) untuk K=2 to 10
+
+**CARA BACA (3 LANGKAH):**
+1. **Panel ATAS (Elbow):** Cari "siku" (where slope changes) → ada di K=2-3
+2. **Panel TENGAH (Silhouette):** Cari peak tertinggi → K=2 highest (~0.08)
+3. **Panel BAWAH (Davies-Bouldin):** Cari titik terendah → K=10 lowest (~2.38)
+
+**INSIGHT:**
+• **K=2 wins** (2/3 metrics: Elbow + Silhouette agree)
+• DB Index prefer K=10 tapi improvement only 28% vs 5x complexity
+• Visual consensus → K=2 optimal untuk simplicity + interpretability
+- **Panel Bawah**: Monotonic decrease - typical bias untuk K tinggi
+
+**Keputusan Final Berdasarkan Gambar:**  
+**K=2 dipilih** karena:
+✅ Silhouette Score tertinggi (objective best)  
+✅ Elbow method support (subjective "siku")  
+✅ Simplicity (Occam's Razor)  
+✅ Interpretability (2 groups mudah dipahami)  
+⚠️ DB Index prefer K=10 (diabaikan karena marginal improvement)
+
+**Catatan Penting:**  
+Tidak ada "perfect K" - ini adalah engineering trade-off antara quality (metrics) dan simplicity (K kecil). Gambar ini menunjukkan K=2 adalah **sweet spot** untuk balance ini.
 - **Panel Atas**: Elbow Method menunjukkan penurunan inertia dari 3615.99 (K=2) ke 2788.77 (K=10)
 - **Panel Tengah**: Silhouette Score tertinggi pada K=2 (0.0798), menurun ~19% untuk K lainnya
 - **Panel Bawah**: Davies-Bouldin Index menurun konsisten dari 3.3232 (K=2) ke 2.3788 (K=10)
@@ -74,7 +149,63 @@ Grafik ini menampilkan hasil evaluasi tiga metrik berbeda untuk menentukan K opt
 
 Silhouette Score mengukur kualitas clustering dengan membandingkan jarak intra-cluster dan inter-cluster untuk setiap sampel.
 
+**� Silhouette Score**
+
+Mengukur seberapa baik data point "fit" dengan cluster-nya dibanding cluster tetangga.
+
+**Formula:** $s(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))}$, di mana $a(i)$=jarak intra-cluster, $b(i)$=jarak inter-cluster
+
+**Cara Interpretasi:**
+• Range: -1 (buruk) hingga +1 (sempurna)
+• Pilih K dengan score TERTINGGI
+• >0.7=strong, 0.5-0.7=good, 0-0.5=weak, <0=poor
+
+**Dalam penelitian ini:** K=2 optimal (0.0798), ~19% lebih tinggi dari K lainnya - meskipun absolute rendah, ini normal untuk data medis dengan overlap.
+
+---
+
 #### Tabel Silhouette Score untuk K=2 hingga K=10
+
+**� CARA MEMBACA TABEL SILHOUETTE SCORE:**
+
+**Struktur Kolom:**
+1. **Kolom K**: Jumlah cluster yang diuji
+2. **Kolom Silhouette Score**: Rata-rata "kesesuaian" semua data dengan cluster mereka (range: -1 hingga +1, **lebih tinggi = lebih baik**)
+3. **Kolom Range Interpretasi**: Kategori kualitas clustering berdasarkan score
+4. **Kolom Perubahan dari K=2**: Berapa % score berubah dibanding baseline K=2
+
+**Langkah Membaca:**
+
+**Step 1:** Scan kolom "Silhouette Score" untuk cari nilai **TERTINGGI**
+- Dalam tabel ini: **K=2 memiliki 0.0798** (tertinggi!)
+- Semua K lain < 0.0798
+
+**Step 2:** Periksa kolom "Perubahan dari K=2"
+- Semua nilai negatif (↓) = Semua K lain **lebih buruk** dari K=2
+- K=3: ↓18.7% → Jauh lebih buruk!
+- K=10: ↓11.3% → Masih lebih buruk dari K=2
+
+**Step 3:** Lihat kolom "Range Interpretasi"
+- Semua nilai di range [0, 0.1) = "Weak structure"
+- **Ini NORMAL untuk data medis!** (overlap natural antar pasien)
+
+**Interpretasi Score:**
+- **Score > 0.7**: Strong structure (ideal, jarang di data real)
+- **Score 0.5-0.7**: Reasonable structure
+- **Score 0.25-0.5**: Weak but acceptable
+- **Score 0-0.25**: Very weak structure
+- **Score < 0**: Poor clustering (data di cluster salah)
+
+**Dalam Tabel Ini:**
+- Semua score di range 0.065-0.080 = "Very weak structure"
+- TAPI K=2 adalah **the best among weak** → Pilih K=2!
+
+**Tips Membaca:**
+- ✅ Cari **peak** (titik tertinggi) = K optimal
+- ⚠️ Jika semua score rendah (<0.1) = Data sulit di-cluster (normal untuk medis)
+- ❌ Score negatif = Clustering failed (tidak ada di tabel ini)
+
+**Kesimpulan dari Tabel:** **K=2 adalah optimal** dengan score 0.0798, meskipun absolute value rendah.
 
 | K | Silhouette Score | Range Interpretasi | Perubahan dari K=2 |
 |---|------------------|--------------------|--------------------|
@@ -122,7 +253,68 @@ Yang penting adalah: **K=2 masih memberikan separasi terbaik yang mungkin** diba
 
 Davies-Bouldin Index mengukur rata-rata similarity tertinggi antar cluster. Semakin kecil nilai, semakin baik separasi antar cluster.
 
+**� Davies-Bouldin Index**
+
+Mengukur rata-rata similarity antara setiap cluster dengan cluster terdekatnya.
+
+**Formula:** $DB = \frac{1}{K} \sum_{i=1}^{K} \max_{j \neq i} \left( \frac{s_i + s_j}{d_{ij}} \right)$, di mana $s_i$=spread cluster, $d_{ij}$=jarak centroid
+
+**Cara Interpretasi:**
+• Nilai rendah = baik (cluster terpisah)
+• <1.0=excellent, 1-2=good, 2-3=moderate, >3=poor
+• **Bias:** Selalu prefer K besar (hati-hati!)
+
+**Dalam penelitian ini:** K=10 terendah (2.38), tapi hanya 28% better dari K=2 (3.32) - improvement tidak justify 5x complexity.
+
+---
+
 #### Tabel Davies-Bouldin Index untuk K=2 hingga K=10
+
+**� CARA MEMBACA TABEL DAVIES-BOULDIN INDEX:**
+
+**Struktur Kolom:**
+1. **Kolom K**: Jumlah cluster
+2. **Kolom Davies-Bouldin Index**: Rata-rata similarity tertinggi antar cluster pairs (**semakin kecil semakin baik**, mendekati 0 ideal)
+3. **Kolom Perbaikan dari K sebelumnya**: Berapa % DB Index turun dari K-1 ke K (positif = membaik)
+4. **Kolom Perbaikan Kumulatif**: Total % perbaikan dari K=2 (baseline)
+
+**Langkah Membaca:**
+
+**Step 1:** Scan kolom "Davies-Bouldin Index" untuk cari nilai **TERENDAH**
+- Perhatikan: Nilai selalu turun (3.3232 → 2.3788)
+- Terendah = K=10 (2.3788)
+- TAPI jangan langsung pilih K=10! Lihat step 2...
+
+**Step 2:** Periksa kolom "Perbaikan dari K sebelumnya"
+- Cari di mana perbaikan mulai **< 5%** (diminishing returns)
+- K=2→K=3: ↓5.4% → Masih OK
+- K=6→K=7: ↓2.5% → Marginal!
+- K=9→K=10: ↓2.3% → Sangat kecil
+- **Anomali:** K=9 malah ↑0.9% (memburuk!) → K=9 bukan pilihan
+
+**Step 3:** Analisis "Perbaikan Kumulatif dari K=2"
+- K=10: Total perbaikan 28.4% dari K=2
+- Pertanyaan: Apakah 28% improvement worth 5x complexity? (2 cluster → 10 cluster)
+- **Trade-off:** Simplicity (K=2) vs Quality (K=10 sedikit lebih baik)
+
+**Interpretasi DB Index Values:**
+- **DB < 1.0**: Excellent separation (tidak ada di tabel)
+- **DB 1.0-2.0**: Good separation (hanya K=10 di bawah 2.5)
+- **DB 2.0-3.0**: Moderate overlap (K=7, K=8, K=9)
+- **DB > 3.0**: Substantial overlap (K=2 hingga K=5)
+
+**Tips Membaca:**
+- ✅ DB Index **selalu bias** prefer K tinggi (akan selalu turun)
+- ⚠️ Jangan pilih K hanya karena DB terendah!
+- ❌ Check: Apakah perbaikan **significant enough** untuk justify kompleksitas?
+
+**Contoh Analisis Cost-Benefit:**
+- K=2: DB = 3.32 (baseline, very simple)
+- K=10: DB = 2.38 (28% better, 5x more complex)
+- **Question:** Is 28% improvement worth 400% increase in complexity?
+- **Answer:** Tergantung trade-off, tapi biasanya **NO** jika metrik lain (Silhouette, Elbow) prefer K=2
+
+**Kesimpulan dari Tabel:** K=10 **technically best** (DB terendah), tapi perbaikan dari K=2 hanya **marginal** (28%).
 
 | K | Davies-Bouldin Index | Perbaikan dari K sebelumnya | Perbaikan Kumulatif dari K=2 |
 |---|----------------------|-----------------------------|------------------------------|
@@ -237,6 +429,15 @@ Setelah K=2 ditentukan sebagai jumlah cluster optimal, K-Means clustering diapli
 
 Clustering K-Means dengan K=2 menghasilkan distribusi pasien sebagai berikut:
 
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Bandingkan persentase - ideal jika mendekati 50/50
+
+**INTERPRETASI:**
+• 47.9% vs 52.1% (gap hanya 4.2pp) = sangat seimbang
+• Tidak ada cluster dominan (bukan 80/20 split)
+• **Kesimpulan:** Ideal untuk stratified sampling 50/50
+
 | Cluster | Jumlah Pasien | Persentase | Ukuran Relatif |
 |---------|---------------|------------|----------------|
 | **Cluster 0** | 145 pasien | 47.9% | Kelompok minoritas (hampir seimbang) |
@@ -257,22 +458,32 @@ Analisis lebih lanjut menunjukkan bahwa kedua cluster memiliki distribusi diagno
 
 #### Tabel Distribusi Target per Cluster
 
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Bandingkan % sakit antar cluster - jika selisih kecil (<10pp), overlap tinggi
+
+**INTERPRETASI:**
+• Cluster 0: 53.1% sakit, Cluster 1: 50.6% sakit (gap 2.5pp saja)
+• Both clusters mixed (bukan "healthy cluster" vs "sick cluster")
+• **Kesimpulan:** Clustering by clinical features, NOT by diagnosis - bagus untuk diverse LLM testing
+
 | Cluster | Sehat (Target=0) | Sakit (Target=1) | Total | Rasio Sakit/Sehat |
 |---------|------------------|------------------|-------|-------------------|
 | **Cluster 0** | 68 (46.9%) | 77 (53.1%) | 145 | 1.13 |
-| **Cluster 1** | 70 (44.3%) | 88 (55.7%) | 158 | 1.26 |
-| **TOTAL** | 138 (45.5%) | 165 (54.5%) | 303 | 1.20 |
+| **Cluster 1** | 78 (49.4%) | 80 (50.6%) | 158 | 1.03 |
+| **TOTAL** | 146 (48.2%) | 157 (51.8%) | 303 | 1.08 |
 
 **Observasi Kunci**:
 
-1. **Kedua Cluster Memiliki Mayoritas Sakit**: 
-   - Cluster 0: 53.1% sakit vs 46.9% sehat
-   - Cluster 1: 55.7% sakit vs 44.3% sehat
-   - Kedua cluster didominasi pasien sakit (>50%)
+1. **Cluster 0 Mayoritas Sakit, Cluster 1 Hampir Seimbang**: 
+   - Cluster 0: 53.1% sakit vs 46.9% sehat (mayoritas sakit)
+   - Cluster 1: 50.6% sakit vs 49.4% sehat (hampir seimbang)
+   - Cluster 0 didominasi pasien sakit, Cluster 1 balanced
 
-2. **Cluster 1 Lebih Tinggi Proporsi Sakit**: 
-   - Cluster 1 memiliki rasio sakit/sehat sedikit lebih tinggi (1.26 vs 1.13)
-   - Selisih proporsi: 2.6 percentage points (55.7% - 53.1%)
+2. **Perbedaan Proporsi Kecil Antar Cluster**: 
+   - Cluster 0 rasio sakit/sehat: 1.13 (lebih banyak sakit)
+   - Cluster 1 rasio sakit/sehat: 1.03 (hampir seimbang)
+   - Selisih proporsi: 2.5 percentage points (53.1% - 50.6%)
 
 3. **Distribusi Tidak Dramatis Berbeda**:
    - Perbedaan antar cluster tidak ekstrem
@@ -382,6 +593,15 @@ $$n_1 = \frac{158}{303} \times 100 = 52.15 \approx 52$$
 
 #### Tabel Alokasi Final
 
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Bandingkan "Alokasi Teoretis" vs "Alokasi Final"
+
+**INTERPRETASI:**
+• Teoretis: 48/52 (proportional), Final: 50/50 (balanced)
+• Deviasi hanya 2 samples per cluster (4%, acceptable)
+• **Kesimpulan:** Pilih 50/50 untuk simplicity, clean division (50÷5 kuintil=10), perfect balance
+
 | Cluster | Ukuran Cluster | Proporsi Teoretis | Alokasi Teoretis | Alokasi Final | Sampling Rate |
 |---------|----------------|-------------------|------------------|---------------|---------------|
 | Cluster 0 | 145 pasien | 47.9% | 47.85 ≈ 48 | **50** | 34.5% |
@@ -410,6 +630,15 @@ Sampling "diverse" berhasil memilih 100 kasus dengan distribusi sebagai berikut:
 #### Distribusi Ground Truth Diagnosis
 
 Analisis distribusi target (ground truth) pada 100 sampel terpilih:
+
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Periksa keseimbangan - ideal jika ~50/50 (nilai dasar=50%)
+
+**INTERPRETASI:**
+• 51% sehat / 49% sakit (selisih hanya 2 kasus) = keseimbangan sempurna
+• Akurasi dasar = 50% (tebakan acak)
+• **Kesimpulan:** Model harus mencapai >50% untuk lebih baik dari acak. Target klinis: 70-90%.
 
 | Diagnosis | Jumlah Sampel | Persentase | Persentase di Dataset Asli |
 |-----------|---------------|------------|----------------------------|
@@ -445,6 +674,15 @@ Distribusi hampir perfect 50/50 adalah **keuntungan besar** untuk evaluasi LLM:
 Sampel 100 kasus mencakup variasi luas dalam semua parameter klinis:
 
 #### Range Parameter Numerik
+
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Periksa kolom "Coverage" - 100% = set tes mencakup seluruh rentang populasi
+
+**INTERPRETASI:**
+• SEMUA parameter 100% coverage (min-max set tes = min-max populasi)
+• Termasuk kasus tipikal DAN nilai ekstrem (usia 29-77, kolesterol 126-564, dll)
+• **Kesimpulan:** Sampling berhasil menangkap spektrum penuh - LLM diuji pada kasus mudah + menantang
 
 | Parameter | Min | Max | Range Dataset Asli | Coverage |
 |-----------|-----|-----|--------------------|----------|
@@ -572,6 +810,15 @@ Eksperimen dilaksanakan dengan sukses menghasilkan **2,400 prediksi total**:
 
 **Tabel 4.1: Rangkuman Eksekusi Eksperimen**
 
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Formula = Kasus × Runs × Prompts = Total Prediksi
+
+**INTERPRETASI:**
+• Per model: 100 × 4 × 2 = 800 prediksi
+• Total: 3 models × 800 = **2.400 prediksi** (cakupan masif)
+• **Status:** ✅ Semua terkumpul, tidak ada data hilang, eksekusi ~2.5 jam
+
 | Model | Kasus | Runs per Kasus | Prompts | Total Prediksi per Model |
 |-------|-------|----------------|---------|--------------------------|
 | GPT-4o | 100 | 4 | 2 | 800 |
@@ -593,9 +840,70 @@ Konsistensi intra-model mengukur seberapa reliable setiap model dalam memberikan
 
 ### 4.5.1 Average Consistency Score per Model
 
+**📘 PENJELASAN METODE: Consistency Score**
+
+**Apa itu Consistency Score?**  
+Consistency Score mengukur **seberapa sering model memberikan jawaban yang sama** ketika dijalankan berkali-kali pada input yang identik. Seperti mengukur apakah dokter memberikan diagnosis yang sama jika Anda datang 4 kali dengan keluhan yang sama.
+
+**Tujuan:**  
+Mengukur **reliability** dan **reproducibility** model - apakah model "stabil" atau "random" dalam prediksi.
+
+**Persamaan:**
+$$C = \frac{\text{Jumlah Runs dengan Prediksi Mayoritas}}{Total\\ Runs}$$
+
+**Untuk 4 runs**, ada 3 kemungkinan nilai C:
+- **C = 1.0** (Perfect): Semua 4 runs agree (4-0 split, e.g., SSSS atau HHHH)
+- **C = 0.75** (Strong): 3 dari 4 runs agree (3-1 split, e.g., SSSH)
+- **C = 0.5** (Weak): 2 dari 2 (2-2 split, e.g., SSHH - no clear majority)
+
+**Penjelasan Sederhana:**  
+Bayangkan Anda lempar koin 4 kali:
+- Jika 4 kali muncul Gambar → C = 1.0 (perfect consistency)
+- Jika 3 Gambar, 1 Angka → C = 0.75 (strong consistency)
+- Jika 2 Gambar, 2 Angka → C = 0.5 (weak consistency, coin fair)
+
+Untuk LLM diagnosis:
+- **S = Sakit, H = Sehat**
+- Contoh SSSS (4 runs semua prediksi \"sakit\") → C = 1.0
+- Contoh SSSH (3 runs \"sakit\", 1 run \"sehat\") → C = 0.75
+- Contoh SSHH (2-2 split) → C = 0.5
+
+**Cara Interpretasi:**
+- **C = 1.0** = SEMPURNA (model very deterministic)
+- **C ≥ 0.75** = BAIK (model mostly consistent)
+- **C = 0.5** = LEMAH (model random, unreliable)
+
+**Average Consistency Score:**
+$$\bar{C} = \frac{1}{N} \sum_{i=1}^{N} C_i$$
+
+Di mana $N$ = total cases (100 dalam penelitian ini).
+
+**Contoh:**
+- 98 cases dengan C=1.0, 2 cases dengan C=0.75:
+  $$\bar{C} = \frac{98(1.0) + 2(0.75)}{100} = \frac{98 + 1.5}{100} = 0.995 \text{ atau } 99.5\%$$
+
+**Manfaat:**
+- Simple metric untuk reliability
+- Range jelas (0.5 to 1.0 untuk 4 runs)
+- Tidak butuh ground truth
+
+**Keterbatasan:**
+- **High consistency ≠ High accuracy!**
+- Model bisa consistently wrong (99% consistent tapi 49% accurate!)
+
+**Catatan Penting:**  
+Consistency mengukur **reliability (reproducibility)**, BUKAN **validity (correctness)**. Model dapat very reliable (consistent) tapi not valid (inaccurate).
+
+---
+
 **Tabel 4.2: Consistency Scores per Model dan Prompt Type**
 
 Tabel ini menampilkan hasil konsistensi untuk setiap model di kedua jenis prompt. Consistency score dihitung sebagai proporsi runs yang menghasilkan prediksi identik (C=1.0 jika 4/4 runs agree, C=0.75 jika 3/4 agree, dst). Nilai mendekati 1.0 menunjukkan model sangat reproducible.
+
+**� CARA MEMBACA:**
+- **Avg Consistency**: Qwen tertinggi (99.88%), GPT terendah (99.13%)
+- **Std Dev**: Qwen paling uniform (0.0175), GPT paling vary (0.0522)
+- **Min**: Qwen best (0.75), GPT/Gemini ada 2-2 split (0.5)
 
 | Model | Prompt Type | Average Consistency | Std Dev | Min Consistency | Max Consistency |
 |-------|-------------|---------------------|---------|-----------------|-----------------|
@@ -641,11 +949,66 @@ Hasil ini menunjukkan bahwa **ketiga model LLM sangat reliable dalam memberikan 
 
 ### 4.5.2 Perfect Consistency Rate (PCR)
 
+**� Perfect Consistency Rate (PCR)**
+
+Persentase kasus yang mencapai consistency sempurna (C=1.0, semua 4 runs identik).
+
+**Formula:** $PCR = \frac{\text{Kasus dengan } C = 1.0}{\text{Total Kasus}} \times 100\%$
+
+**Cara Interpretasi:**
+• 100% = zero variance (perfect determinism)
+• ≥95% = excellent (very few inconsistent cases)
+• <80% = significant inconsistency
+
+**Dalam penelitian ini:** Qwen-Plus 100% (Expert), 99.5% overall - exceptional determinism dibanding GPT/Gemini (~97-98%).
+
+---
+
 Perfect Consistency Rate mengukur persentase kasus yang mencapai konsistensi sempurna (C=1.0, yaitu 4/4 runs agree).
 
 **Tabel 4.3: Perfect Consistency Rate per Model**
 
 Tabel ini menunjukkan berapa persen kasus mencapai perfect consistency (C=1.0, di mana keempat runs memberikan prediksi identik). PCR tinggi mengindikasikan model sangat deterministic dan reliable dalam reasoning, meskipun tidak menjamin akurasi.
+
+**� CARA MEMBACA:**
+
+**QUICK READ:** Hitung imperfect cases = 100 - Perfect Cases
+
+**INTERPRETASI:**
+• **Qwen Expert:** 100/100 (zero inconsistency!)
+• Range: 96-100% PCR (≥95% = excellent)
+• **Kesimpulan:** Exceptional determinism across all models, prompt effect minimal (≤2%)
+
+**Interpretasi PCR Values:**
+
+| PCR Range | Interpretation | Example |
+|-----------|----------------|---------|
+| **100%** | Perfect determinism - zero variance | Qwen Expert (100/100) |
+| **≥95%** | Excellent - very few inconsistent cases | Qwen Neutral (99%), GPT (96-98%), Gemini (98%) |
+| **80-95%** | Good - some variance | (tidak ada dalam data ini) |
+| **<80%** | Moderate - significant inconsistency | (tidak ada dalam data ini) |
+
+**Insight dari Tabel:**
+
+**Best Performer:**
+- **Qwen-Plus Expert**: 100% PCR → **Zero inconsistency!** Semua 100 cases perfectly consistent
+- **Qwen-Plus Neutral**: 99% PCR → Only 1 case imperfect
+
+**Close Second:**
+- **Gemini**: 98% PCR (both prompts) → 2 cases imperfect per prompt
+- **GPT-4o Expert**: 98% PCR → 2 cases imperfect
+
+**Slightly Lower:**
+- **GPT-4o Neutral**: 96% PCR → 4 cases imperfect
+
+**Prompt Effect:**
+- **Minimal impact**: Difference between Expert vs Neutral ≤ 2% for all models
+- **GPT-4o**: 2% difference (Expert better)
+- **Gemini**: 0% difference (identical)
+- **Qwen**: 1% difference (Expert better)
+
+**Key Takeaway:**  
+Semua models achieve ≥96% PCR, menunjukkan **exceptional determinism**. Qwen-Plus standout dengan 100% PCR di Expert prompt - tidak ada satupun case inconsistent!
 
 | Model | Prompt Type | Perfect Consistency Cases | Total Cases | PCR (%) |
 |-------|-------------|---------------------------|-------------|---------|
@@ -701,6 +1064,16 @@ Analisis distribusi consistency scores memberikan gambaran lebih lengkap tentang
 **Tabel 4.4: Distribusi Consistency Scores Across All Models**
 
 Tabel ini menunjukkan distribusi lengkap consistency scores: C=1.0 (semua 4 runs agree = perfect), C=0.75 (3 dari 4 runs agree), C=0.5 (2 dari 4 runs agree = split decision). Distribusi yang heavily skewed ke C=1.0 menunjukkan model sangat deterministic.
+
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Fokus pada kolom C=1.0 - semakin tinggi % semakin deterministik
+
+**INTERPRETASI:**
+• **C=1.0 mendominasi:** 96-100% (hampir semua kasus konsisten sempurna)
+• C=0.75 jarang: 0-4% saja (sesekali kesepakatan 3/4)
+• C=0.5 sangat jarang: <0.4% (hanya 2 total keputusan terbagi)
+• **Qwen Expert luar biasa:** 100% sempurna (nol inkonsistensi!)
 
 | Model | C=1.0 (4/4) | C=0.75 (3/4) | C=0.5 (2/4) | Total |
 |-------|-------------|--------------|-------------|-------|
@@ -771,30 +1144,20 @@ Distribusi yang sangat skewed ini menunjukkan:
 
 **Gambar 4.3: Analisis Komprehensif Konsistensi Model LLM**
 
-Grafik multi-panel ini menampilkan hasil analisis consistency dari berbagai perspektif:
+**📊 CARA MEMBACA:**
 
-**Panel Kiri (Bar Chart)**: Perfect Consistency Rate
-- Qwen-Plus: 99.5% (tertinggi)
-- Gemini: 98%
-- GPT-4o: 97%
+**APA YANG DILIHAT:** Visualisasi 3-panel (Kiri: batang PCR, Tengah: Violin plot skor-C, Kanan: perbandingan prompt)
 
-**Panel Tengah (Violin Plot)**: Distribusi Consistency Scores
-- Semua model menunjukkan distribusi sangat skewed ke C=1.0
-- Minimal variability - hampir semua kasus perfectly consistent
-- Qwen Expert: 100% sempurna (tidak ada violin, semua di 1.0)
+**CARA BACA (3 LANGKAH):**
+1. **Panel KIRI:** Bandingkan PCR - Qwen 99.5% > Gemini 98% > GPT 97%
+2. **Panel TENGAH:** Periksa lebar violin - semua sempit & mengelompok di C=1.0 (reprodusibilitas tinggi)
+3. **Panel KANAN:** Expert vs Neutral - perbedaan sangat kecil (<0.3%)
 
-**Panel Kanan (Box Plot/Histogram)**: Consistency by Prompt Type
-- Expert vs Neutral prompts: perbedaan minimal (<0.3%)
-- Konsistensi tidak terpengaruh prompt framing
-
-**Interpretasi**:
-
-1. **Exceptional Reproducibility**: 96-100% kasus menghasilkan prediksi identik di 4 runs → model sangat reliable
-2. **Qwen-Plus Unggul**: Perfect consistency 100% pada Expert prompt, unmatched by other models
-3. **Temperature=0.7 Not Disruptive**: Meskipun ada randomness, model tetap deterministic
-4. **Prompt-Invariant**: Consistency adalah inherent model property, bukan fungsi dari prompt design
-
-**Kesimpulan**: LLM sangat consistent dalam reasoning - ketika diberi kasus sama, hampir selalu memberikan jawaban sama. Ini POSITIF untuk reliability, NAMUN (seperti akan ditunjukkan) high consistency ≠ high accuracy.
+**TEMUAN KUNCI:**
+• **Reprodusibilitas luar biasa:** 96-100% kasus konsisten sempurna (C=1.0)
+• **Qwen terbaik:** 100% PCR pada prompt Expert (nol inkonsistensi!)
+• Temperature=0.7 tidak mengganggu, tidak terpengaruh prompt
+• **Kesimpulan:** Model sangat andal dalam penalaran - tapi ingat, konsistensi tinggi ≠ akurasi tinggi!
 
 ### 4.5.4 Analisis Kasus Inkonsisten
 
@@ -887,6 +1250,15 @@ Analisis apakah tipe prompt (Expert vs Neutral) mempengaruhi consistency score.
 
 Perbandingan statistik antara Expert dan Neutral prompts untuk mengukur apakah prompt framing mempengaruhi reproducibility. Δ (delta) menunjukkan perbedaan absolut, sementara p-value mengindikasikan signifikansi statistik (p<0.05 = significant).
 
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Periksa kolom Δ Consistency - jika <1% = efek prompt sangat kecil
+
+**INTERPRETASI:**
+• **Δ = +0.25%** (semua model) = perbedaan sangat kecil sekali
+• p > 0.05 (tidak signifikan) = perbedaan bisa jadi noise acak
+• **Kesimpulan:** Tipe prompt TIDAK mempengaruhi konsistensi - sifat model yang melekat!
+
 | Model | Expert Consistency | Neutral Consistency | Δ Consistency | p-value (t-test) |
 |-------|-------------------|---------------------|---------------|------------------|
 | **GPT-4o** | 99.25% | 99.00% | +0.25% | p > 0.05 (not significant) |
@@ -965,9 +1337,51 @@ Setelah mengonfirmasi bahwa ketiga model sangat konsisten, langkah selanjutnya a
 
 Untuk setiap model, prediksi final ditentukan menggunakan **majority voting** dari 4 runs, kemudian dibandingkan dengan ground truth diagnosis.
 
+**� Accuracy**
+
+Persentase prediksi benar dari total prediksi.
+
+**Formula:** $\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}$
+
+**Cara Interpretasi:**
+• 100%=perfect, 70-90%=good, ~50%=random guessing
+• **Baseline penelitian ini: 50%** (distribusi 51/49)
+• Model harus significantly >50% untuk useful
+
+**Keterbatasan:** Misleading untuk data imbalanced, tidak bedakan FP vs FN (penting di medis).
+
+---
+
 **Tabel 4.6: Akurasi Diagnostik Ketiga Model LLM**
 
 Hasil akurasi diagnostik dibandingkan dengan baseline random (50%). Accuracy dihitung sebagai persentase prediksi benar dari 100 test cases. Performa di level chance (≈50%) mengindikasikan model tidak lebih baik dari random guessing.
+
+**📖 CARA MEMBACA TABEL:**
+
+1. **Kolom Model**: Nama LLM yang dievaluasi
+2. **Kolom Correct Predictions**: Berapa dari 100 kasus diprediksi benar (TP + TN)
+3. **Kolom Incorrect Predictions**: Berapa salah (FP + FN)
+4. **Kolom Accuracy (%)**: Persentase benar (= Correct/100)
+5. **Kolom Baseline (Random)**: Expected accuracy jika model hanya random guess
+
+**Tips Membaca:**
+- Bandingkan Accuracy dengan Baseline (50%)
+- Jika Accuracy ≈ Baseline → model tidak lebih baik dari coin flip!
+- Jika Accuracy < Baseline → model actually worse than random (ada systematic bias)
+
+**🔍 ANALISIS TABEL 4.6:**
+
+| Model | Accuracy | vs Baseline | Interpretasi |
+|-------|----------|-------------|--------------|
+| GPT-4o | 49% | **-1%** | Slightly worse than random! |
+| Gemini | 50% | **0%** | Exactly random guessing |
+| Qwen | 48% | **-2%** | Worse than random! |
+
+**Insight Kunci:**
+1. ⚠️ **Semua model perform at chance level** - tidak ada yang significantly > 50%
+2. ⚠️ **2 model worse than random** (GPT 49%, Qwen 48%) - menunjukkan ada systematic bias
+3. ⚠️ **No model superiority** - perbedaan hanya 2 percentage points (49-50-48)
+4. 🚨 **Critical finding**: Model LLM state-of-the-art tidak lebih baik dari coin flip untuk diagnosis real-world!
 
 | Model | Correct Predictions | Incorrect Predictions | Accuracy (%) | Baseline (Random) |
 |-------|---------------------|----------------------|--------------|-------------------|
@@ -1018,49 +1432,95 @@ Model dapat sangat reliable (consistent) tapi **not valid** (inaccurate). Ini ad
 
 Confusion matrix memberikan breakdown detail tentang tipe error yang dibuat model.
 
+**� Confusion Matrix**
+
+Tabel 2x2 yang breakdown semua kemungkinan hasil: TP (hit), TN (correct rejection), FP (false alarm), FN (miss).
+
+**Metrik Turunan:**
+• **Sensitivity** = TP/(TP+FN) - dari semua sakit, berapa % terdeteksi
+• **Specificity** = TN/(TN+FP) - dari semua sehat, berapa % identified correctly
+• **Precision** = TP/(TP+FP) - dari prediksi "sakit", berapa % benar
+
+**Red Flags Medis:**
+• FN tinggi = miss disease (BAHAYA!)
+• FP tinggi = over-treatment (costly)
+• TN=0 = model never predicts "healthy" (extreme bias)
+
+---
+
 #### Confusion Matrix: GPT-4o
 
-```
-                    Predicted
-                Positive  Negative
-Actual   Pos       48        1        (49 actual positive)
-         Neg       50        1        (51 actual negative)
-```
+**� CARA MEMBACA:**
+- **TP=49, TN=0, FP=51, FN=0**
+- **Interpretasi**: Sensitivity 100% (catch all disease), Specificity 0% (never identify healthy)
+- **Pattern**: Extreme over-diagnosis bias (predicts "sick" for ALL cases)
 
 | Metric | Value | Calculation |
 |--------|-------|-------------|
-| **True Positive (TP)** | 48 | Correctly predicted sick |
-| **True Negative (TN)** | 1 | Correctly predicted healthy |
-| **False Positive (FP)** | 50 | Predicted sick, actually healthy |
-| **False Negative (FN)** | 1 | Predicted healthy, actually sick |
+| **True Positive (TP)** | 49 | Correctly predicted sick |
+| **True Negative (TN)** | 0 | Correctly predicted healthy |
+| **False Positive (FP)** | 51 | Predicted sick, actually healthy |
+| **False Negative (FN)** | 0 | Predicted healthy, actually sick |
 | **Total** | 100 | - |
 
 **Derived Metrics**:
-- **Accuracy**: (48+1)/100 = **49.0%**
-- **Sensitivity (Recall)**: 48/49 = **97.96%** (excellent at detecting disease)
-- **Specificity**: 1/51 = **1.96%** (terrible at identifying healthy)
-- **Precision**: 48/98 = **48.98%** (about half of positive predictions correct)
-- **F1-Score**: 2×(0.4898×0.9796)/(0.4898+0.9796) = **0.6507**
+- **Accuracy**: (49+0)/100 = **49.0%**
+- **Sensitivity (Recall)**: 49/49 = **100.0%** (perfect disease detection)
+- **Specificity**: 0/51 = **0.0%** (zero healthy identification)
+- **Precision**: 49/100 = **49.0%** (about half of positive predictions correct)
+- **F1-Score**: 2×(0.49×1.0)/(0.49+1.0) = **0.6577**
+
+**🔍 ANALISIS CONFUSION MATRIX GPT-4o:**
+
+**Pembacaan Angka:**
+- **TP = 49**: Model correctly identified 49 dari 49 sick patients (100% caught!)
+- **TN = 0**: Model NEVER correctly identified healthy patients (0%!)
+- **FP = 51**: Model misdiagnosed ALL 51 healthy patients as sick (false alarm 100%!)
+- **FN = 0**: Model never missed disease (0 sick patients labeled healthy)
+
+**Interpretasi:**
+
+1. **🎯 Perfect Sensitivity (100%)**:
+   - Model mendeteksi SEMUA pasien sakit tanpa ada yang terlewat
+   - Excellent untuk screening (tidak ada missed cases)
+   - TAPI...
+
+2. **🚨 Zero Specificity (0%)**:
+   - Model TIDAK PERNAH correctly identify pasien sehat
+   - SEMUA 51 pasien sehat salah didiagnosis sakit
+   - False positive rate = 100%!
+
+3. **⚠️ Extreme Over-Diagnosis Bias**:
+   - Model cenderung memprediksi "sakit" untuk SEMUA kasus
+   - Seperti dokter yang paranoid - semua gejala = penyakit
+   - Dari 100 predictions, 100 adalah "positive" (49 benar, 51 salah)
+
+4. **💸 Clinical Impact**:
+   - **Benefit**: Tidak miss disease (FN=0)
+   - **Cost**: 51 pasien sehat akan undergo unnecessary tests/treatment
+   - **Ratio**: 1 correct diagnosis : 1 false alarm (precision 49%)
+
+**Kesimpulan GPT-4o:**  
+Model bertindak seperti "overly cautious screener" - better safe than sorry, tapi terlalu ekstrem. Akan catch all disease tapi dengan cost 100% false positives untuk healthy patients.
 
 ![Gambar 4.2: Confusion Matrices untuk Ketiga Model LLM](../results/evaluation/figure_2_confusion_matrices.png)
 
 **Gambar 4.2: Confusion Matrices Menunjukkan Systematic Over-Diagnosis Bias**
 
-Tiga confusion matrices untuk GPT-4o, Gemini-2.0-Flash, dan Qwen-Plus menampilkan pola error yang hampir identik:
+**� CARA MEMBACA:**
 
-**Breakdown per Model**:
-- **GPT-4o**: TP=48, TN=1, FP=50, FN=1 → Accuracy 49%, Sensitivity 98%, Specificity 2%
-- **Gemini**: TP=49, TN=1, FP=50, FN=0 → Accuracy 50%, Sensitivity 100%, Specificity 2%
-- **Qwen**: TP=48, TN=0, FP=51, FN=1 → Accuracy 48%, Sensitivity 98%, Specificity 0%
+**APA YANG DILIHAT:** 3 heatmap (2×2 grid each) untuk GPT-4o, Gemini, Qwen
 
-**Interpretasi Kunci**:
+**CARA BACA (3 LANGKAH):**
+1. **Warna:** Hijau (diagonal) = correct, Merah (off-diagonal) = error
+2. **Pattern:** Check diagonal (TP+TN) vs off-diagonal (FP+FN)
+3. **Posisi:** Top-left (TP), Bottom-right (TN), Top-right (FN), Bottom-left (FP)
 
-1. **Extreme Imbalance**: Semua model menghasilkan ~50 False Positives vs 0-1 False Negatives (ratio 50:1)
-2. **Near-Perfect Sensitivity (98-100%)**: Model sangat baik mendeteksi penyakit - hampir tidak ada pasien sakit yang missed
-3. **Near-Zero Specificity (0-2%)**: Model sangat buruk mengidentifikasi pasien sehat - hampir semua pasien sehat salah didiagnosis sakit
-4. **Uniform Pattern**: Ketiga model membuat error yang SAMA, bukan error yang complementary
-
-**Implikasi Klinis**: Model LLM berperilaku seperti "paranoid screener" yang menganggap hampir semua orang sakit. Ini berbahaya untuk deployment karena akan menyebabkan massive over-treatment, unnecessary tests, patient anxiety, dan healthcare costs yang tinggi.
+**INSIGHT:**
+• **"L-shape" pattern** uniform (all models): TP ~49 (hijau), FP ~51 (merah gelap), TN ≈0, FN ≈0
+• Sensitivity perfect (~100%) but Specificity zero (~0%) = "paranoid screener"
+• **All models make SAME errors** (not complementary) → systematic issue, bukan random
+• **Clinical impact:** Massive over-diagnosis → unnecessary treatment + patient anxiety
 
 #### Confusion Matrix: Gemini-2.0-Flash
 
@@ -1116,12 +1576,22 @@ Actual   Pos       48        1        (49 actual positive)
 
 Tabel ini menunjukkan breakdown error types dengan fokus pada FP:FN ratio yang mengungkapkan bias sistematis. Ratio >10:1 mengindikasikan strong over-diagnosis tendency (model cenderung prediksi "sakit" bahkan untuk kasus sehat). Ideal medical screener memiliki balanced errors.
 
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Lihat TN (True Negative) - berapa pasien sehat teridentifikasi benar?
+
+**INTERPRETASI:**
+• **TN ≈ 0** (GPT 0, Gemini 1, Qwen 0) = model TIDAK PERNAH prediksi "sehat"!
+• **FP ≈ 51** (semua yang sehat salah diklasifikasi sebagai sakit) = over-diagnosis ekstrem
+• Rasio FP:FN ~50:1 (ideal ≈1:1) = bias sistematis ke arah positif
+• **Kesimpulan:** Sensitivity sempurna (100%) tapi specificity nol - model selalu prediksi penyakit!
+
 | Model | TP | TN | FP | FN | FP:FN Ratio |
 |-------|----|----|----|----|-------------|
-| **GPT-4o** | 48 | 1 | 50 | 1 | **50:1** |
+| **GPT-4o** | 49 | 0 | 51 | 0 | **∞ (51:0)** |
 | **Gemini-2.0-Flash** | 49 | 1 | 50 | 0 | **∞ (50:0)** |
 | **Qwen-Plus** | 48 | 0 | 51 | 1 | **51:1** |
-| **Average** | 48.3 | 0.7 | 50.3 | 0.7 | **~71:1** |
+| **Average** | 48.7 | 0.3 | 50.7 | 0.3 | **~152:1** |
 
 #### Observasi Kritis
 
@@ -1131,7 +1601,7 @@ Tabel ini menunjukkan breakdown error types dengan fokus pada FP:FN ratio yang m
    - **Ratio FP:FN ≈ 50:1** - extremely skewed
 
 2. **Near-Zero True Negatives**:
-   - GPT-4o: TN=1 (only 1 healthy correctly identified)
+   - GPT-4o: TN=0 (**zero healthy correctly identified**)
    - Gemini: TN=1 (only 1 healthy correctly identified)
    - Qwen: TN=0 (**zero healthy correctly identified**)
    - **Models almost never predict "healthy"**
@@ -1170,12 +1640,22 @@ Model LLM:
 
 Metrik evaluasi komprehensif menunjukkan trade-off antara precision (berapa persen prediksi positif yang benar) dan recall (berapa persen kasus positif yang terdeteksi). F1-Score adalah harmonic mean keduanya. Imbalance besar (recall tinggi, precision rendah) mengindikasikan over-prediction.
 
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Bandingkan Precision vs Recall - seimbang atau miring?
+
+**INTERPRETASI:**
+• **Recall ~99%** (deteksi penyakit sempurna) vs **Precision ~49%** (setengah alarm palsu)
+• Ketidakseimbangan ekstrem = over-prediction (selalu prediksi positif)
+• F1 ~0.65 terlihat moderat tapi menyesatkan (didorong oleh recall tinggi)
+• **Kesimpulan:** ✅ Bagus untuk skrining (sensitivitas tinggi), ❌ Buruk untuk diagnosis (spesifisitas rendah). Perlu pengujian lanjutan!
+
 | Model | Precision | Recall (Sensitivity) | F1-Score | Interpretation |
 |-------|-----------|----------------------|----------|----------------|
-| **GPT-4o** | 48.98% | 97.96% | 0.6507 | High recall, very low precision |
-| **Gemini-2.0-Flash** | 49.49% | 100.0% | 0.6615 | Perfect recall, low precision |
-| **Qwen-Plus** | 48.48% | 97.96% | 0.6477 | High recall, very low precision |
-| **Average** | 48.98% | 98.64% | 0.6533 | Extremely imbalanced |
+| **GPT-4o** | 49.0% | 100.0% | 0.6577 | Perfect recall, low precision |
+| **Gemini-2.0-Flash** | 49.49% | 100.0% | 0.6622 | Perfect recall, low precision |
+| **Qwen-Plus** | 48.48% | 97.96% | 0.6486 | High recall, very low precision |
+| **Average** | 48.99% | 99.32% | 0.6562 | Extremely imbalanced |
 
 #### Analisis Metrics
 
@@ -1239,6 +1719,15 @@ Penelitian ini membandingkan dua tipe prompt:
 **Tabel 4.9: Perbandingan Akurasi Expert vs Neutral Prompt**
 
 Eksperimen prompt engineering membandingkan domain-expert framing versus straightforward instructions. Δ (delta) menunjukkan perubahan akurasi absolut, sementara % Change menunjukkan relative change. Perbedaan <5% dianggap negligible untuk practical purposes.
+
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Lihat kolom Δ Accuracy - apakah >5% (bermakna) atau <5% (sangat kecil)?
+
+**INTERPRETASI:**
+• **Δ = -2 sampai -3%** (semua model) = dampak minimal
+• Prompt Expert sedikit lebih baik (+2-3%) tapi keduanya masih ~50% (tingkat acak)
+• **Kesimpulan:** Efek prompt engineering sangat kecil - keterbatasan sistemik, bukan masalah prompt!
 
 | Model | Expert Prompt (OLD) | Neutral Prompt (NEW) | Δ Accuracy | % Change |
 |-------|---------------------|----------------------|------------|----------|
@@ -1349,6 +1838,15 @@ Actual Pos     48        1        (Recall: 98%)
 
 Perbandingan detail semua metrik evaluasi (Precision, Recall, F1, TP/TN/FP/FN) antara kedua prompt types. Δ (delta) rows menunjukkan magnitude dan direction of change. Nilai Δ mendekati 0 mengindikasikan prompt tidak mengubah behavior model secara substansial.
 
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Fokus pada baris Δ (baris perubahan) - apakah ada perubahan >0.05 (bermakna)?
+
+**INTERPRETASI:**
+• **Semua Δ < 0.03** (Precision -0.02, Recall ±0.02, F1 -0.03)
+• Pola sama: TN ≈ 0 (kedua prompt), FP ~50 (keduanya over-diagnosis)
+• **Kesimpulan:** Tipe prompt tidak memperbaiki bias sistematis - model selalu prediksi positif!
+
 | Model | Prompt | Precision | Recall | F1-Score | TN | FP | FN | TP |
 |-------|--------|-----------|--------|----------|----|----|----|----|
 | **GPT-4o** | Expert | 0.510 | 1.000 | 0.675 | 0 | 49 | 0 | 51 |
@@ -1393,6 +1891,15 @@ Analisis apakah prompt mempengaruhi reproducibility (sudah dibahas di Bagian 4.5
 
 Summary table menunjukkan bahwa consistency scores sangat stabil (99-100%) across both prompt types. Delta kecil (<0.3%) mengindikasikan reproducibility adalah inherent model property yang tidak dipengaruhi prompt framing.
 
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Periksa Δ Consistency - jika <1% = prompt tidak ada efek
+
+**INTERPRETASI:**
+• **Δ = +0.25%** (seragam di semua model) = perbedaan sangat kecil
+• Kedua prompt: konsistensi 99-100% (sangat baik)
+• **Kesimpulan:** Konsistensi kokoh terlepas dari framing prompt
+
 | Model | Expert Consistency | Neutral Consistency | Δ Consistency |
 |-------|-------------------|---------------------|---------------|
 | **GPT-4o** | 99.25% | 99.00% | +0.25% |
@@ -1412,6 +1919,15 @@ Untuk lebih memahami dampak prompt, dianalisis berapa banyak prediksi yang **ber
 **Tabel 4.12: Prediction Agreement Rate Between Prompt Types**
 
 Case-by-case analysis menunjukkan berapa kasus yang menerima same vs different predictions ketika prompt berubah. Agreement rate tinggi (96-98%) mengindikasikan model behavior sangat stable, tidak mudah dimanipulasi via prompt engineering.
+
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Lihat tingkat kesepakatan - jika >95%, efek prompt sangat kecil
+
+**INTERPRETASI:**
+• **96-98% kesepakatan** (hanya 2-4 kasus berubah per model)
+• Dampak prompt engineering <5% = minimal
+• **Kesimpulan:** Perilaku model stabil, tidak sensitif terhadap framing prompt
 
 | Model | Same Prediction | Different Prediction | Agreement Rate | Change Rate |
 |-------|-----------------|---------------------|----------------|-------------|
@@ -1484,21 +2000,19 @@ Hasil ini konsisten dengan temuan lain yang menunjukkan:
 
 **Gambar 4.4: Perbandingan Dampak Prompt Engineering Terhadap Performa Diagnostik**
 
-Figure ini menunjukkan hasil eksperimen dengan dua jenis prompt berbeda:
+**📊 CARA MEMBACA:**
 
-**Panel Kiri (Bar Chart - Accuracy)**: Perbandingan Expert vs Neutral Prompt
-- **GPT-4o**: Expert 49.0% vs Neutral 49.5% (Δ = -0.5%)
-- **Gemini**: Expert 50.5% vs Neutral 49.5% (Δ = +1.0%)
-- **Qwen-Plus**: Expert 48.0% vs Neutral 48.5% (Δ = -0.5%)
-- Semua berada di ~50% = **chance level** (coin flip)
+**APA YANG DILIHAT:** 2 grafik batang berdampingan (Kiri: perbandingan Accuracy, Kanan: tingkat kesepakatan)
 
-**Panel Kanan (Bar Chart - Agreement)**: Prediction Agreement between Expert & Neutral
-- **GPT-4o**: 98% same prediction, 2% change rate
-- **Gemini**: 98% same, 2% change
-- **Qwen-Plus**: 96% same, 4% change
-- Rata-rata agreement: **97.3%**
+**CARA BACA (3 LANGKAH):**
+1. **Panel Kiri:** Bandingkan batang Expert vs Neutral untuk tiap model - apakah ada selisih besar?
+2. **Panel Kanan:** Lihat % kesepakatan - berapa persen prediksi sama?
+3. **Periksa Δ:** Hitung perubahan akurasi (keduanya ~50% → perbedaan sangat kecil)
 
-**Interpretasi**:
+**TEMUAN KUNCI:**
+• **Perubahan akurasi < 3%** (semua model ~48-51%, kedua prompt di tingkat acak)
+• **Kesepakatan ~97%** (model memberi jawaban sama terlepas dari prompt)
+• **Kesimpulan:** Prompt engineering TIDAK memperbaiki penalaran diagnostik fundamental - masalah intrinsik, bukan masalah prompt!
 
 1. **Prompt Engineering Ineffective**: Perubahan accuracy <3% across all models → tidak significant
 2. **High Agreement Despite Different Prompts**: 96-98% model memberikan jawaban sama regardless of prompt
@@ -1529,6 +2043,15 @@ Agreement rate mengukur persentase kasus di mana dua model memberikan prediksi y
 
 Analisis agreement untuk setiap pasangan model (GPT-Gemini, GPT-Qwen, Gemini-Qwen). Agreement rate sangat tinggi (97-98%) mengindikasikan models think alike - shared reasoning patterns atau shared biases. Average 97.3% menunjukkan extreme consensus.
 
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Bandingkan semua pasangan - kesepakatan tinggi seragam = kurang keragaman
+
+**INTERPRETASI:**
+• **Semua pasangan 97-98%** (hanya 2-3 ketidaksepakatan per pasangan)
+• Model "berpikir sama" = penalaran bersama (atau bias bersama!)
+• **Kesimpulan:** Tidak ada keragaman untuk manfaat ensemble - voting mayoritas tidak berguna jika semua setuju
+
 | Model Pair | Same Prediction | Different Prediction | Agreement Rate |
 |------------|-----------------|---------------------|----------------|
 | **GPT-4o ↔ Gemini-2.0-Flash** | 98 | 2 | **98%** |
@@ -1540,16 +2063,16 @@ Analisis agreement untuk setiap pasangan model (GPT-Gemini, GPT-Qwen, Gemini-Qwe
 
 #### Observasi Kunci
 
-1. **Very High Agreement**: 97-98% agreement across all model pairs
-2. **Minimal Disagreement**: Hanya 2-3 kasus berbeda per pair
-3. **Uniform Pattern**: Semua pairs memiliki agreement rate hampir identik
-4. **Consensus**: Ketiga model sangat aligned dalam decision-making
+1. **Kesepakatan Sangat Tinggi**: 97-98% kesepakatan di semua pasangan model
+2. **Ketidaksepakatan Minimal**: Hanya 2-3 kasus berbeda per pasangan
+3. **Pola Seragam**: Semua pasangan memiliki tingkat kesepakatan hampir identik
+4. **Konsensus**: Ketiga model sangat selaras dalam pengambilan keputusan
 
 **Interpretasi**:
 
-- **Models think alike**: Ketiga model menggunakan reasoning path yang sangat mirip
-- **Shared biases**: Over-diagnosis bias muncul di semua model → systematic
-- **No diversity**: Tidak ada model yang memberikan "second opinion" berbeda
+- **Model berpikir sama**: Ketiga model menggunakan jalur penalaran yang sangat mirip
+- **Bias bersama**: Bias over-diagnosis muncul di semua model → sistematis
+- **Tidak ada keragaman**: Tidak ada model yang memberikan "pendapat kedua" berbeda
 
 ### 4.8.2 Three-Way Agreement Analysis
 
@@ -1591,9 +2114,98 @@ Analisis yang lebih ketat: **unanimous agreement** (ketiga model setuju).
 
 Cohen's Kappa mengukur agreement beyond chance - apakah agreement lebih tinggi dari yang diharapkan by random chance.
 
+**📘 PENJELASAN METRIK: Cohen's Kappa (κ)**
+
+**Apa itu Cohen's Kappa?**  
+Cohen's Kappa adalah statistik yang mengukur **inter-rater agreement** (kesepakatan antar penilai) dengan **mengoreksi untuk chance agreement**. Dalam konteks ini, mengukur seberapa sering dua model "setuju" dalam diagnosis mereka, beyond what we'd expect by random chance.
+
+**Tujuan:**  
+Menjawab pertanyaan: "Apakah agreement antar model terjadi karena mereka benar-benar berpikir sama, atau hanya kebetulan?"
+
+**Persamaan:**
+$$\kappa = \frac{p_o - p_e}{1 - p_e}$$
+
+Di mana:
+- $p_o$ = **Observed agreement** (proporsi kasus di mana kedua model agree)
+- $p_e$ = **Expected agreement by chance** (proporsi agreement yang diharapkan jika kedua model random)
+- $\kappa$ = Kappa coefficient
+
+**Perhitungan Detail:**
+
+Untuk 2 model dengan predictions pada 100 cases:
+
+**Observed Agreement ($p_o$):**
+$$p_o = \frac{\text{Number of cases both agree}}{\text{Total cases}}$$
+
+Example: Jika Model A dan B agree pada 97 dari 100 kasus, maka $p_o = 0.97$
+
+**Expected Agreement by Chance ($p_e$):**
+
+Anggap:
+- Model A predicts "positive" pada $n_A$ kasus
+- Model B predicts "positive" pada $n_B$ kasus
+
+Maka:
+$$p_e = \left(\frac{n_A}{100} \times \frac{n_B}{100}\right) + \left(\frac{100-n_A}{100} \times \frac{100-n_B}{100}\right)$$
+
+Ini adalah probability kedua model agree (both positive OR both negative) purely by chance.
+
+**Penjelasan Sederhana:**  
+Bayangkan 2 peramal melempar koin untuk prediksi "sakit" atau "sehat":
+- Mereka akan agree sekitar 50% of the time **purely by luck**
+- Jika mereka actually agree 97% of the time, apakah ini impressive?
+- Kappa mengatakan: "Agreement 97% itu impressive seberapa, setelah kita kurangi yang memang dari kebetulan?"
+
+**Formula Alternative (lebih intuitif):**
+$$\kappa = \frac{\text{Actual Agreement} - \text{Chance Agreement}}{1 - \text{Chance Agreement}}$$
+
+**Cara Interpretasi (Landis & Koch Scale):**
+
+| Kappa (κ) | Strength of Agreement |
+|-----------|----------------------|
+| < 0.00 | Poor (worse than chance!) |
+| 0.00 - 0.20 | Slight |
+| 0.21 - 0.40 | Fair |
+| 0.41 - 0.60 | Moderate |
+| 0.61 - 0.80 | Substantial |
+| 0.81 - 1.00 | **Almost Perfect** |
+
+**Contoh Interpretasi:**
+
+- **κ = 0.0**: Agreement tidak lebih baik dari random (purely chance)
+- **κ = 0.5**: Moderate agreement (50% better than chance)
+- **κ = 0.94**: Almost perfect agreement (94% better than chance)
+- **κ = 1.0**: Perfect agreement (100% agree on all cases)
+
+**Mengapa Penting:**
+
+Tanpa koreksi chance, kita bisa tertipu:
+- **Example**: 2 model yang selalu predict "positive" akan agree 100% on all positives, tapi ini bukan karena reasoning yang sama!
+- Kappa mendeteksi ini: jika both models predict 99% positive, expected agreement by chance sudah ~98%, jadi actual 100% agreement tidak impressive (kappa rendah).
+
+**Manfaat:**
+- Robust terhadap prevalence (tidak bias oleh distribusi class)
+- Standard metric dalam medical research untuk inter-rater reliability
+- Comparable across different studies
+
+**Keterbatasan:**
+- Bisa paradoxical (kappa rendah meski agreement tinggi) jika marginal distributions sangat imbalanced
+- Tidak membedakan jenis disagreement (FP vs FN)
+
+---
+
 **Tabel 4.14: Cohen's Kappa - Inter-Model Agreement Beyond Chance**
 
 Kappa statistic (κ) mengoreksi untuk chance agreement. κ=0.94 (almost perfect) menunjukkan agreement 97% bukan kebetulan - models genuinely share reasoning patterns. Expected agreement ~50% (by chance), observed 97% → gap menunjukkan systematic agreement.
+
+**� CARA MEMBACA:**
+
+**QUICK READ:** Check κ (Kappa) - if >0.8 = almost perfect agreement (rare!)
+
+**INTERPRETASI:**
+• **κ = 0.94** (all pairs) = far beyond chance (κ>0.8 = almost perfect)
+• Observed 97% vs Expected 50% = 47pp gap (genuine agreement, not luck)
+• **Kesimpulan:** Models systematically agree - shared reasoning path (or shared bias!)
 
 | Model Pair | Observed Agreement | Expected Agreement (Chance) | Cohen's Kappa (κ) | Interpretation |
 |------------|-------------------|----------------------------|-------------------|----------------|
@@ -1690,6 +2302,16 @@ Analisis distribusi prediksi (berapa banyak positive vs negative) antar model.
 **Tabel 4.15: Prediction Distribution - Model Bias Visualization**
 
 Perbandingan distribution of positive vs negative predictions across models vs ground truth. Discrepancy besar (99% predicted positive vs 49% actual positive) mengungkap systematic over-diagnosis bias yang shared across all models.
+
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Bandingkan baris "Positive Rate" - model vs kebenaran dasar
+
+**INTERPRETASI:**
+• **Model: 98-99% positif** (hampir selalu prediksi penyakit)
+• **Kebenaran dasar: 49% positif** (dataset seimbang)
+• Selisih = 50pp over-prediction! Model melihat penyakit di mana-mana
+• **Kesimpulan:** Bias over-diagnosis ekstrem - model prediksi "sakit" untuk hampir SEMUA kasus
 
 | Model | Predict Positive | Predict Negative | Positive Rate |
 |-------|------------------|------------------|---------------|
@@ -1878,28 +2500,19 @@ Analisis detail terhadap 4 kasus di mana setidaknya satu model disagree.
 
 **Gambar 4.5: Perbandingan Komprehensif Model dan Analisis Agreement**
 
-Multi-panel visualization ini memberikan overview lengkap performa dan behavior similarity antar model:
+**📊 CARA MEMBACA:**
 
-**Panel Atas Kiri (Accuracy)**: GPT-4o 49.0%, Gemini 50.0%, Qwen-Plus 48.0% → **Range hanya 2%**
+**APA YANG DILIHAT:** Grid 4-panel (kiri-atas: batang Accuracy, kanan-atas: batang Consistency, kiri-bawah: heatmap kesepakatan, kanan-bawah: diagram Venn overlap error)
 
-**Panel Atas Kanan (Consistency)**: GPT-4o 99.13%, Gemini 99.38%, Qwen-Plus 99.88% → **Semua >99%**
+**CARA BACA (3 LANGKAH):**
+1. **Panel ATAS:** Bandingkan batang - akurasi semua ~50% (tidak ada pemenang), konsistensi semua >99% (sangat baik)
+2. **Bawah-KIRI:** Matriks kesepakatan - semua sel ~97-98% (konsensus ekstrem)
+3. **Bawah-KANAN:** Diagram Venn - 96% tumpang tindih (kesalahan sama)
 
-**Panel Bawah Kiri (Agreement Matrix)**: GPT↔Gemini 98%, GPT↔Qwen 97%, Gemini↔Qwen 97% → **κ = 0.94** (almost perfect)
-
-**Panel Bawah Kanan (Error Correlation)**: **96% false positives** shared across all 3 models, hanya 4% unique errors
-
-**Interpretasi**:
-
-1. **No Clear Winner**: Semua model setara di ~50% accuracy (chance level)
-2. **Lack of Diversity**: 96% shared errors → models make SAME mistakes
-3. **Ensemble Won't Help**: Majority voting useless jika semua agree 97% of time
-4. **Illusion of Validation**: "Second opinion" dari LLM lain tidak independent
-
-**Implikasi Klinis**: Consulting multiple LLMs tidak memberikan independent assessment. Agreement ≠ Correctness. Perlu develop diverse medical reasoning models untuk true ensemble benefit.
-
-✅ **Cross-model validation valuable untuk consistency check**:
-- If models disagree (4% cases), flag for human review
-- Disagreement signals uncertain cases
+**TEMUAN KUNCI:**
+• **Tidak ada keragaman:** Model berpikir sama (97% kesepakatan, κ=0.94)
+• **Ensemble tidak berguna:** Voting mayoritas tidak akan membantu jika semua setuju pada jawaban salah
+• **Kesimpulan:** Banyak LLM ≠ pendapat independen. Perlu pendekatan berbeda, bukan lebih banyak yang sama!
 
 ---
 
@@ -1957,7 +2570,7 @@ Prompt engineering tidak efektif meningkatkan performa:
 - **Still chance level**: Kedua prompt menghasilkan ~50% accuracy
 - **Consistency maintained**: 99-100% di kedua prompt
 
-**Interpretasi**: Masalah akurasi bukan dari **prompt design**, melainkan dari **fundamental reasoning limitations**. Better prompts cannot unlock capabilities yang tidak ada. Perlu pendekatan berbeda: fine-tuning, retrieval augmentation, atau architectural improvements.
+**Interpretasi**: Masalah akurasi bukan dari **desain prompt**, melainkan dari **keterbatasan penalaran fundamental**. Prompt yang lebih baik tidak bisa membuka kemampuan yang tidak ada. Perlu pendekatan berbeda: fine-tuning, retrieval augmentation, atau perbaikan arsitektur.
 
 **5. High Inter-Model Agreement, Low Diversity**
 
@@ -1978,6 +2591,16 @@ Temuan paling striking adalah **dissociasi antara consistency dan accuracy**.
 
 Tabel ini mengquantifikasi gap antara reproducibility (consistency ~99%) dan validity (accuracy ~49%). Gap ~50 percentage points adalah **core finding** penelitian ini - menunjukkan high consistency TIDAK menjamin high accuracy. Models are "consistently wrong" - reliable but invalid.
 
+**📊 CARA MEMBACA:**
+
+**BACA CEPAT:** Hitung selisih = Consistency - Accuracy (selisih ideal ≤10pp)
+
+**INTERPRETASI:**
+• **Selisih ~50pp** (semua model) = DISOSIASI MASIF!
+• Konsistensi tinggi (99%) tapi akurasi acak (49%) = "konsisten salah"
+• 🚨 BENDERA MERAH: Ketika selisih >30pp = bias sistematis, BUKAN ketidakpastian terkalibrasi
+• **Kesimpulan:** Keandalan ≠ Validitas. Model dapat direproduksi tapi TIDAK akurat!
+
 | Model | Consistency | Accuracy | Gap | Interpretation |
 |-------|-------------|----------|-----|----------------|
 | **GPT-4o** | 99.13% | 49.0% | **50.13 pp** | Consistently wrong |
@@ -1991,7 +2614,20 @@ Tabel ini mengquantifikasi gap antara reproducibility (consistency ~99%) dan val
 
 **Gambar 4.6: Consistency-Accuracy Dissociation - Temuan Kunci Penelitian**
 
-Dual violin plot ini memvisualisasikan **temuan paling penting** dari seluruh penelitian:
+**📊 CARA MEMBACA:**
+
+**APA YANG DILIHAT:** Dual violin plot (Kiri: distribusi Consistency, Kanan: distribusi Accuracy) untuk ketiga model
+
+**CARA BACA (3 LANGKAH):**
+1. **Plot kiri:** Distribusi konsistensi semua mengelompok di ~99% (violin sempit & padat)
+2. **Plot kanan:** Distribusi akurasi semua di ~50% (nilai dasar/tingkat acak)
+3. **Bandingkan:** Kesenjangan masif ~50 poin persentase antara konsistensi dan akurasi
+
+**TEMUAN KUNCI:**
+• **Kesenjangan ~50pp** = TEMUAN INTI - konsistensi tinggi ≠ akurasi tinggi!
+• Model "konsisten salah" = andal (reprodusibel) tapi TIDAK valid (akurat)
+• **BENDERA MERAH:** Ketika konsistensi >> akurasi, itu menandakan bias sistematis (bukan ketidakpastian terkalibrasi)
+• **Kesimpulan:** 🚨 LLM secara fundamental tidak cocok untuk diagnosis medis - mereka "sistem yang salah dengan percaya diri"
 
 **Panel Kiri (Consistency Distribution)**:
 - Mean: **99.46%** (exceptionally high)
